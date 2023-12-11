@@ -1,10 +1,13 @@
-import NavBar from "../NavBar/NavBar"
-import Card from "./Card/Card"
+// import Card from "./Card/Card"
+import CardsSection from "./CardsSection/CardsSection"
+import FilterCard from "./FilterCard/FilterCard"
 
 const SearchPage = () => {
   return (
-    <div className="h-screen w-screen flex flex-col">
-        <NavBar/>
+    <div className="flex-1 flex">
+      <CardsSection/>
+      <FilterCard/>
+        {/* <Card/> */}
     </div>
   )
 }

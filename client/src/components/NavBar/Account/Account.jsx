@@ -1,8 +1,7 @@
-import React from 'react'
-
 const Account = () => {
   return (
-    <div>Account</div>
+    <div className="w-12 h-12 rounded-full bg-white">
+    </div>
   )
 }
 

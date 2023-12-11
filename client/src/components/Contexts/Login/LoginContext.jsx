@@ -5,7 +5,7 @@ const loginContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const LoginContextProvider = ({children}) => {
-    const [isLogin, setLogin] = useState(false);
+    const [isLogin, setLogin] = useState(true);
     return (
         <loginContext.Provider value={{isLogin, setLogin}}>
             {children}
