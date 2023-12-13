@@ -29,6 +29,7 @@ const NavBar = () => {
               <div>Log In</div>
             }
           </div>
+          {/* TODO: REMOVE THIS LOGOUT BUTTON AND PUT IT SOMEWHERE ACCORDINGLY! */}
           {/* <button onClick={()=>{setLogin(!isLogin)}}>Click</button> */}
         </div>
       </div>

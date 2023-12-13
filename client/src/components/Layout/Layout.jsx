@@ -14,7 +14,7 @@ const Layout = () => {
         <section className="flex-1 flex flex-col">
             <Outlet/>
         </section>
-        <Footer/>
+        {/* <Footer/> */}
     </div>
   )
 }

@@ -1,43 +1,23 @@
-import React from "react";
+import AboutSection from "./AboutSection/AboutSection";
+import AdviceSection from "./AdviceSection/AdviceSection";
+import BookingSection from "./BookingSection/BookingSection";
+import ExperienceSection from "./ExperienceSection/ExperienceSection";
+import TitleSection from "./TitleSection/TitleSection";
 
 const ClientProfile = () => {
   return (
-    <div className="flex">
-      <div className="flex-1 overflow-hidden bg-green-300">
-        <div className="h-[100vh] overflow-y-auto p-4">
-            <h1 className="text-2xl p-3">Hello1</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
-            <h1 className="text-2xl p-3">Hello1</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
-            <h1 className="text-2xl p-3">Hello1</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
-            <h1 className="text-2xl p-3">Hello1</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
-            <h1 className="text-2xl p-3">Hello1</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
-            <h1 className="text-2xl p-3">Hello</h1>
+    <div className="flex-1 flex justify-center pt-4">
+      <div className="h-full w-[90vw] flex">
+        <div className="flex-[2_2_0%] flex flex-col">
+          <TitleSection/>
+          <AboutSection/>
+          <ExperienceSection/>
         </div>
-      </div>
-
-      <div className="flex-none w-1/3 bg-red-300">
-        <div className="sticky top-1/3 p-4">
-            <h1>HEllo </h1>
-            <h1></h1>
-            
+        <div className="flex-[1_1_0%]">
+          <div className="sticky top-0 pl-[5vw]">
+            <BookingSection/>
+            <AdviceSection/>
+          </div>
         </div>
       </div>
     </div>
