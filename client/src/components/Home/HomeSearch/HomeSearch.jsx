@@ -16,7 +16,7 @@ const HomeSearch = ({isClick, setIsClick}) => {
         <div className={`flex-[4_4_0%] flex justify-center items-center`}>
           <form onSubmit={handleSubmit} className={`flex-1 bg-white h-10 rounded-md flex ${isClick?' outline outline-orange-400':''}`}>
             <input 
-            type="text" className="flex-1 rounded-md px-5 focus:outline-none text-black" 
+            type="text" className="flex-1 rounded-md px-5 focus:outline-none text-black font-bold font-mono" 
             placeholder={`Search for items`} 
             onClick={()=>setIsClick(true)} 
             onBlur={()=>setIsClick(false)}
