@@ -1,6 +1,7 @@
+import { Link } from 'react-router-dom';
 const Card = () => {
   return (
-    <div className=" h-64 w-44 bg-slate-200 rounded-md mt-4 m-4">
+    <Link as={Link} to="/client" className=" h-64 w-44 bg-slate-200 rounded-md mt-4 m-4">
       <div className="w-full h-full flex flex-col p-2">
         <div className="flex-[6_6_0%] flex items-center justify-center relative">
           <div className="bg-[#7d7a7a] w-28 h-28 rounded-full">
@@ -24,7 +25,7 @@ const Card = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
