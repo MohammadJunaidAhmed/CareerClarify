@@ -6,7 +6,7 @@ const BookingButton = ({ txt }) => {
   const [hvr, setHvr] = useState(false);
   const { scW } = useContext(mainContext);
   return (
-    <div>
+    <div className="mt-5 mb-5">
       <button
         className={`${
           scW < 1000 ? "w-full bg-slate-400" : "w-3/4"

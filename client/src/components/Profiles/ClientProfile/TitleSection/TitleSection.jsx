@@ -1,9 +1,12 @@
+import { useContext } from 'react'
 import JunaidPic from '../../../../assets/JunaidPic.jpg'
+import mainContext from '../../../Contexts/MainContext/MainContext'
 const TitleSection = () => {
+   const {scW} = useContext(mainContext);
   return (
     <div className="h-fit w-full flex p-3 mb-4">
         <div className="flex flex-1">
-            <div className='h-80 w-60 overflow-hidden rounded-xl'>
+            <div className={` overflow-hidden rounded-xl ${scW<800?'w-1/2 h-full':'h-80 w-60'}`}>
                 <img src={JunaidPic} className=' rounded-xl object-cover h-80 w-60 transition-transform duration-200 hover:scale-105'></img>
             </div>
             <div className=' w-1/3 flex flex-col'>

@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import mainContext from '../../Contexts/MainContext/MainContext';
+import JunaidPic from '../../../assets/JunaidPic.jpg'
 const Card = () => {
   const scW = useContext(mainContext);
   return (
@@ -9,6 +10,7 @@ const Card = () => {
         <div className="flex-[6_6_0%] flex items-center justify-center relative">
           <div className="bg-[#7d7a7a] w-28 h-28 rounded-full">
             {/* TODO: PUT IMAGE HERE */}
+            <img src={JunaidPic} className='w-full h-full rounded-full'></img>
           </div>
           <div className="absolute h-14 w-14 bg-green-300 top-2 right-3 rounded-full opacity-60 flex items-center justify-center">
             <h1 className="font-bold font-serif">
