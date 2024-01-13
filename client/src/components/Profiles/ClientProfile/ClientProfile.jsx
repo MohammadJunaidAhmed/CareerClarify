@@ -6,7 +6,7 @@ import TitleSection from "./TitleSection/TitleSection";
 
 const ClientProfile = () => {
   return (
-    <div className="flex-1 flex justify-center pt-4">
+    <div className="flex-1 flex justify-center pt-4 bg-[#111827]">
       <div className="h-full w-[85vw] flex">
         <div className="flex-[2_2_0%] flex flex-col">
           <TitleSection/>

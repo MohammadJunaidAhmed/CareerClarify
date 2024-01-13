@@ -1,11 +1,11 @@
 import { createContext, useState} from "react"
+import PropTypes from 'prop-types'
 
 // TODO: CHANGE THE NAME OF THIS CONTEXT TO MAIN_CONTEXT;
 
 
 const loginContext = createContext();
 
-// eslint-disable-next-line react/prop-types
 export const LoginContextProvider = ({children}) => {
     const [isLogin, setLogin] = useState(true);
     const [isClick, setIsClick] = useState(false);
@@ -15,6 +15,10 @@ export const LoginContextProvider = ({children}) => {
         </loginContext.Provider>
     )
 }
+
+LoginContextProvider.propTypes = {
+    children: PropTypes.node.isRequired,
+};
 
 // eslint-disable-next-line react-refresh/only-export-components
 export default loginContext;

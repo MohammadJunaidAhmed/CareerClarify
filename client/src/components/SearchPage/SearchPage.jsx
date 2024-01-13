@@ -4,7 +4,7 @@ import FilterCard from "./FilterCard/FilterCard"
 
 const SearchPage = () => {
   return (
-    <div className="flex-1 flex">
+    <div className="flex-1 flex bg-[#111827] pb-10">
       <CardsSection/>
       <FilterCard/>
         {/* <Card/> */}

@@ -1,6 +1,7 @@
 :root{
     /* background-color: #767D82 */
-    background-color: rgb(17 24 39);
+    background-color: #1d3362;
+    /* background-color: #111827; */
 }
 @tailwind base;
 @tailwind components;
