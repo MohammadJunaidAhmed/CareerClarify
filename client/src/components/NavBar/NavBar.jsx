@@ -9,7 +9,7 @@ const NavBar = () => {
   const {isLogin, isClick, setIsClick} = useContext(loginContext);
   const {scW} = useContext(mainContext);
   return (
-    <div className="w-screen min-h-16 bg-[#1d3362] font-bold border-b-2 border-black sticky top-0 z-50">
+    <div className="w-screen bg-[#1d3362] font-bold border-b-2 border-black sticky top-0 z-50">
       <div className={`w-full h-full flex ${scW < 540 ? 'flex-col':''}`}>
         <div className="flex-[2_2_0%] flex items-center justify-center">
           <Link as={Link} to='/'>

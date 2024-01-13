@@ -8,7 +8,7 @@ import loginContext from "../Contexts/Login/LoginContext";
 const Layout = () => {
   const {isClick} = useContext(loginContext);
   return (
-    <div className={`h-screen w-screen flex flex-col`}>
+    <div className={`h-screen w-screen flex flex-col overflow-auto`}>
       <div id="overlay" className={`fixed inset-0 bg-gray-800 bg-opacity-75 z-40 ${isClick?'':'hidden'}`}></div>
         <NavBar/>
         <section className="flex-1 flex flex-col">
