@@ -2,16 +2,16 @@ import { useContext } from "react"
 import loginContext from "../Contexts/Login/LoginContext";
 import Account from "./Account/Account";
 import { Link } from "react-router-dom";
+import mainContext from "../Contexts/MainContext/MainContext";
 
 
 const NavBar = () => {
-  // eslint-disable-next-line no-unused-vars
-  const {isLogin, setLogin, isClick, setIsClick} = useContext(loginContext);
+  const {isLogin, isClick, setIsClick} = useContext(loginContext);
+  const {scW} = useContext(mainContext);
   return (
-    <div className="w-screen h-16 bg-[#1d3362] font-bold border-b-2 border-black sticky top-0 z-50">
-      <div className="w-full h-full flex">
+    <div className="w-screen min-h-16 bg-[#1d3362] font-bold border-b-2 border-black sticky top-0 z-50">
+      <div className={`w-full h-full flex ${scW < 540 ? 'flex-col':''}`}>
         <div className="flex-[2_2_0%] flex items-center justify-center">
-          {/* TODO: ADD ROUTE TO HOME HERE! */}
           <Link as={Link} to='/'>
             <h1 className="text-2xl font-serif cursor-pointer bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">CareerClarify</h1>
           </Link>
@@ -26,11 +26,11 @@ const NavBar = () => {
             </button>
           </div>
         </div>
-        <div className="flex-[3_3_0%]">
+        <div className={`flex-[3_3_0%] ${scW < 540 ? 'flex items-center justify-center':''}`}>
           <div className="w-full h-full flex">
             {
               isLogin ? 
-              <div className="h-full ml-auto flex items-center mr-4"><Account/></div>
+              <div className={`h-full ml-auto flex items-center mr-4`}><Account/></div>
               :
               <div>Log In</div>
             }
