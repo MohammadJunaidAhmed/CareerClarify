@@ -9,6 +9,11 @@ const mainContext = createContext();
 export const MainContextProvider = ({children}) => {
     const [scH,setScH] = useState(window.innerHeight);
     const [scW,setScW] = useState(window.innerWidth);
+
+    const [isMouseOnAccount, setIsMouseOnAccount] = useState(false);
+    const [isMouseOnAccountOverLay, setIsMouseOnAccountOverlay] = useState(false);
+    const [isAccountOverLayComponentVisible,setAccountOverLayVisibility] = useState(false);
+
     useEffect(() => {
         const handleResize = () => {
         setScH(window.innerHeight);
@@ -24,7 +29,10 @@ export const MainContextProvider = ({children}) => {
         };
       }, []); // Empty dependency array to run the effect once after initial render
     return (
-        <mainContext.Provider value={{scW,scH,setScH,setScW}}>
+        <mainContext.Provider value={{scW,scH,setScH,setScW,isMouseOnAccount, setIsMouseOnAccount,
+          isMouseOnAccountOverLay, setIsMouseOnAccountOverlay,
+          isAccountOverLayComponentVisible,setAccountOverLayVisibility}}
+         >
             {children}
         </mainContext.Provider>
     )

@@ -34,7 +34,7 @@ const ClientProfile = () => {
           <ExperienceSection/>
         </div>
         <div className="flex-[1_1_0%]">
-          <div className={`sticky top-0`}>
+          <div className={`sticky top-5`}>
             <BookingSection/>
             <AdviceSection/>
           </div>
