@@ -13,7 +13,7 @@ const SearchPage = () => {
         scW < 650 ? 
         <div><FilterCardResponsive/><CardsSection/></div>
         :
-        <div className="flex"><CardsSection/><FilterCard/></div>
+        <div className="flex w-full"><CardsSection/><FilterCard/></div>
       }
       {/* <CardsSection/> */}
       {/* <FilterCard/> */}
