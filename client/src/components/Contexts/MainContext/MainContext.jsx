@@ -1,11 +1,11 @@
 import { createContext, useEffect, useState} from "react"
+import PropTypes from 'prop-types'
 
 // TODO: CHANGE THE NAME OF THIS CONTEXT TO MAIN_CONTEXT;
 
 
 const mainContext = createContext();
 
-// eslint-disable-next-line react/prop-types
 export const MainContextProvider = ({children}) => {
     const [scH,setScH] = useState(window.innerHeight);
     const [scW,setScW] = useState(window.innerWidth);
@@ -36,6 +36,10 @@ export const MainContextProvider = ({children}) => {
             {children}
         </mainContext.Provider>
     )
+}
+
+MainContextProvider.propTypes={
+  children: PropTypes.node.isRequired,
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
