@@ -23,7 +23,7 @@ const Layout = () => {
           {
             isAccountOverLayComponentVisible && (
               <div id="overLayAccount" 
-                className={`bg-slate-400 z-50 w-72 h-fit fixed right-0 mr-5 duration-150 cursor-pointer flex flex-col ${isAccountOverLayComponentVisible?'':'hidden'}`}
+                className={`bg-slate-300 border border-black z-50 w-64 h-fit fixed right-0 mr-5 duration-150 cursor-pointer flex flex-col ${isAccountOverLayComponentVisible?'':'hidden'}`}
                 onMouseOver={()=>{setIsMouseOnAccountOverlay(true);console.log("ON OVERLAY")}}
                 onMouseLeave={()=>{setIsMouseOnAccountOverlay(false); setAccountOverLayVisibility(false); console.log("LEAVING OVERLAY")}}
               >

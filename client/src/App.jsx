@@ -4,6 +4,7 @@ import { MainContextProvider } from './components/Contexts/MainContext/MainConte
 import Home from './components/Home/Home';
 import TestHome from './components/Home/TestHome';
 import Layout from './components/Layout/Layout';
+import MyAccount from './components/NavBar/Account/MyAccount/MyAccount';
 import ClientProfile from './components/Profiles/ClientProfile/ClientProfile';
 import SearchPage from './components/SearchPage/SearchPage'
 import { Route, BrowserRouter as Router, Routes, Navigate } from "react-router-dom";
@@ -17,10 +18,13 @@ function App() {
           <Routes>
             <Route path={`/home`} element={<Navigate to={'/'}/>}/>
             <Route path='/' element={<Home/>}/>
-            <Route path='/hometest' element={<TestHome/>}/>
             <Route element={<Layout/>}>
               <Route path='/search' element={<SearchPage/>}/>
               <Route path='/client' element={<ClientProfile/>}/>
+            </Route>
+            <Route path='/account'>
+              <Route path='myaccount' element={<MyAccount/>}></Route>
+              <Route path='help'></Route>
             </Route>
           </Routes>
         </LoginContextProvider>
