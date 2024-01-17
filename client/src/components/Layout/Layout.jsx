@@ -5,6 +5,8 @@ import Footer from "../Footer/Footer";
 import { useContext, useState } from "react";
 import loginContext from "../Contexts/Login/LoginContext";
 import mainContext from "../Contexts/MainContext/MainContext";
+import Account from "../NavBar/Account/Account";
+import AccountOverlay from "../NavBar/Account/AccountOverlay/AccountOverlay";
 
 
 const Layout = () => {
@@ -25,9 +27,7 @@ const Layout = () => {
                 onMouseOver={()=>{setIsMouseOnAccountOverlay(true);console.log("ON OVERLAY")}}
                 onMouseLeave={()=>{setIsMouseOnAccountOverlay(false); setAccountOverLayVisibility(false); console.log("LEAVING OVERLAY")}}
               >
-                <button className="p-1 ">Junaid Ahmed</button>
-                <button className="p-1 ">Junaid Ahmed</button>
-                <button className="p-1 ">Junaid Ahmed</button>
+                <AccountOverlay/>
               </div>
             )
           }

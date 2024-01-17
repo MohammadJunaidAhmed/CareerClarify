@@ -8,7 +8,7 @@ const CardsSection = () => {
   const searchParams = new URLSearchParams(location.search);
   const query = searchParams.get('query');
   const {scW} = useContext(mainContext);
-  const profs = ['Junaid', 'Ahmed', 'Mohammad', 'Khan','','','']
+  const profs = ['Junaid', 'Ahmed', 'Mohammad', 'Khan','Steve','John','Yahya']
   // const profs = ['Junaid']
   return (
     <div className={`flex-1 ${scW < 540 ? 'pl-1 w-full':'pl-16 w-full'}`}>
@@ -18,8 +18,8 @@ const CardsSection = () => {
         {/* CARDS */}
         <div className={`flex flex-wrap justify-items-start items-center ${scW < 540 ? 'justify-center':''}`}>
           {
-            profs.map((key)=>{
-              return <Card key={key}/>
+            profs.map((prof)=>{
+              return <Card key={prof}/>
             })
           }
         </div>
