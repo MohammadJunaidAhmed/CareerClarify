@@ -6,7 +6,10 @@ const Account = () => {
   const {isAccountOverLayComponentVisible} = useContext(mainContext);
   const {isMouseOnAccount, isMouseOnAccountOverLay} = useContext(mainContext);
   const handleMouseLeave = () =>{
-    setIsMouseOnAccount(false);
+    setTimeout(()=>{ // 2seconds waiting time; 
+      setIsMouseOnAccount(false);
+    },2000);
+    // setIsMouseOnAccount(false);
   };
   const handleMouseEnter=()=>{
     setIsMouseOnAccount(true);
