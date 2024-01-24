@@ -12,7 +12,7 @@ const Account = () => {
       if(!isAccountClicked){
         setIsMouseOnAccount(false);
       }
-    },scW < 560 ? 300 : 1000);
+    },scW < 560 ? 150 : 600);
     // setIsMouseOnAccount(false);
   };
   const handleMouseEnter=()=>{

@@ -1,18 +1,20 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import mainContext from "../../Contexts/MainContext/MainContext";
 
 
 
 const HomeSearch = ({isClick, setIsClick}) => {
   const [query, setQuery] = useState('');
+  const {scW} = useContext(mainContext);
   const navigate = useNavigate();
   const handleSubmit = (e)=>{
     e.preventDefault()
     navigate(`/search?query=${query}`)
   }
   return (
-    <div className="w-2/3 bg-white p-1 rounded-lg z-50">
+    <div className={`bg-white p-1 rounded-lg z-50 ${scW < 600 ? 'w-full' : 'w-2/3'}`}>
         <div className={`flex-[4_4_0%] flex justify-center items-center`}>
           <form onSubmit={handleSubmit} className={`flex-1 bg-white h-10 rounded-md flex ${isClick?' outline outline-orange-400':''}`}>
             <input 
