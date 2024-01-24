@@ -7,19 +7,29 @@ const Account = () => {
   const {isMouseOnAccount, isMouseOnAccountOverLay} = useContext(mainContext);
   const [isAccountClicked, setIsAccountClicked] = useState(false);
   const {scW} = useContext(mainContext);
+  let timeOut;
   const handleMouseLeave = () =>{
-    setTimeout(()=>{ // 1seconds waiting time; 
+    if(scW < 560){
+      return;
+    }
+    timeOut = setTimeout(()=>{ // 1seconds waiting time; 
       if(!isAccountClicked){
         setIsMouseOnAccount(false);
       }
-    },scW < 560 ? 150 : 600);
+    },scW < 560 ? 0 : 600);
     // setIsMouseOnAccount(false);
   };
   const handleMouseEnter=()=>{
+    if(scW < 560){
+      return;
+    } 
     setIsMouseOnAccount(true);
     setAccountOverLayVisibility(true);
   }
   const handleMouseClick = () => {
+    if(isAccountClicked){
+      clearTimeout(timeOut);
+    }
     setIsAccountClicked(!isAccountClicked);
   }
   useEffect(()=>{
