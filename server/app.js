@@ -3,6 +3,15 @@ const app = express();
 require('dotenv/config');
 const mongoose = require('mongoose')
 
+const api = process.env.API_URL;
+
+const professionalRoutes = require('./src/routes/professionals');
+
+
+app.use(`${api}`, professionalRoutes);
+
+
+
 mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
     dbName: 'careerclarify-database'
 })
