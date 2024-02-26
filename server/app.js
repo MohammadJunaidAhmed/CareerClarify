@@ -5,6 +5,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const professionalRoutes = require('./src/routes/professionals');
+const experienceRoutes = require('./src/routes/experience');
 
 const api = process.env.API_URL;
 
@@ -15,7 +16,8 @@ app.use(morgan('tiny'));
 
 
 
-app.use(`${api}`, professionalRoutes);
+app.use(`${api}/prof`, professionalRoutes);
+app.use(`${api}/exp`, experienceRoutes);
 
 
 

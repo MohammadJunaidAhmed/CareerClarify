@@ -23,7 +23,8 @@ router.post('/register', async(req, res)=>{
             email: req.body.email,
             passwordHash: bcrypt.hashSync(req.body.password, 10),
             phone: req.body.phone,
-            field: req.body.field
+            field: req.body.field,
+            experiences: req.body.experiences
         });
         professional = await professional.save();
         if(!professional){

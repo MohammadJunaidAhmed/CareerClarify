@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { Experience } = require('../Experience/Experience');
 
 const professionalSchema = new mongoose.Schema({
     name: {
@@ -54,10 +55,10 @@ const professionalSchema = new mongoose.Schema({
         type: String,
         default: 'Currently Not-Working'
     },
-    experiences:{
-        type: String,
-        default: ''
-    },
+    experiences:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Experience'
+    }],
     bankDetails: {
         type: String,
         defualt: ''
