@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import AboutSection from "./AboutSection/AboutSection";
 import AdviceSection from "./AdviceSection/AdviceSection";
 import BookingSection from "./BookingSection/BookingSection";
@@ -8,8 +8,30 @@ import mainContext from "../../Contexts/MainContext/MainContext";
 
 const ClientProfile = () => {
   const {scW} = useContext(mainContext);
+  const ref = useRef(null);
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+  useEffect(() => {
+
+    // Ensure that the effect runs after the component has mounted
+    scrollToTop();
+
+    // Additionally, you can use a listener to handle potential scroll changes
+    const handleScroll = () => {
+      scrollToTop();
+    };
+
+    // Attach the scroll listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the listener when the component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
-    <div className={`flex-1 flex justify-center pt-4 bg-[#111827] ${scW<800?'flex-col':''}`}>
+    <div className={`flex-1 flex justify-center pt-4 bg-[#111827] ${scW<800?'flex-col':''}`} ref={ref} onClick={()=>{scrollToTop();console.log("Hello")}}>
       {
         scW<700 ? 
         <div className={`h-full flex ${scW < 800?'w-[95vw] flex-col':'w-[85vw]'}`}>

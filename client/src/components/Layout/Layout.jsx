@@ -31,8 +31,8 @@ const Layout = () => {
             )
           }
           <Outlet/>
+          <Footer/>
         </section>
-        <Footer/>
     </div>
   )
 }

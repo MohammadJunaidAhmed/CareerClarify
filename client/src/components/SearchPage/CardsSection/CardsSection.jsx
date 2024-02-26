@@ -8,7 +8,7 @@ const CardsSection = () => {
   const searchParams = new URLSearchParams(location.search);
   const query = searchParams.get('query');
   const {scW} = useContext(mainContext);
-  const profs = ['Junaid', 'Ahmed', 'Mohammad', 'Khan','Steve','John','Yahya']
+  const profs = ['Junaid', 'Ahmed', 'Mohammad', 'Khan','Steve','John','Yahya', 'A','B','C','D','E','F','G','H','I','J','K']
   // const profs = ['Junaid']
   return (
     <div className={`flex-1 ${scW < 540 ? 'pl-1 w-full':'pl-16 w-full'}`}>
