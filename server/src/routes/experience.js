@@ -15,7 +15,7 @@ router.get('/:id', async(req, res)=>{
     res.status(200).send(exp);
 });
 
-router.post('/add', async(req, res)=>{
+router.post('/addexp', async(req, res)=>{
     const stillWorking = req.body.stillWorking;
     const uid = req.body.profId;
     let exp = new Experience({
@@ -45,33 +45,48 @@ router.post('/add', async(req, res)=>{
 });
 
 router.delete('/:id', async (req,res)=>{
-    const exp = await Experience.findById(req.params.id);
-    if(!exp){
-        return res.status(404).json({success: false, message: 'Experience could not be found'});
-    }
-    const profId = exp.profId.toString();
-    const prof = await Professional.findById(profId);
-    if(!prof){
-        return res.status(404).json({success: false, message: 'Professional could not be found'});
-    }
-    //Remove the exp_id from experience list of prof;
-    prof.experiences = prof.experiences.filter(id => id != req.params.id);
-    await prof.save();
-    //Delete experience;
-    Experience.findByIdAndDelete(req.params.id).then(exp => {
-        if(exp){
-            return res.status(200).json({success: true, message: 'Experience is deleted!'})
+    try{
+        const exp = await Experience.findById(req.params.id);
+        if(!exp){
+            return res.status(404).json({success: false, message: 'Experience could not be found'});
         }
-        else{
-            return res.status(404).json({success: false , message: "Experience not found!"})
+        let profId = exp.profId;
+        if(!profId){
+            Experience.findByIdAndDelete(req.params.id).then(exp => {
+                if(exp){
+                    return res.status(200).json({success: true, message: 'Experience is deleted!'})
+                }
+                else{
+                    return res.status(404).json({success: false , message: "Experience not found!"})
+                }
+            }).catch(err=>{
+                return res.status(500).json({success: false, error: err}) 
+            });
         }
-    }).catch(err=>{
-        return res.status(500).json({success: false, error: err}) 
-    })
+        profId = profId.toString();
+        profId = profId.toString();
+        const prof = await Professional.findById(profId);
+        if(!prof){
+            return res.status(404).json({success: false, message: 'Professional could not be found'});
+        }
+        // //Remove the exp_id from experience list of prof;
+        prof.experiences = prof.experiences.filter(id => id != req.params.id);
+        await prof.save();
+        //Delete experience;
+        Experience.findByIdAndDelete(req.params.id).then(exp => {
+            if(exp){
+                return res.status(200).json({success: true, message: 'Experience is deleted!'})
+            }
+            else{
+                return res.status(404).json({success: false , message: "Experience not found!"})
+            }
+        }).catch(err=>{
+            return res.status(500).json({success: false, error: err}) 
+        })
+    }
+    catch(err){
+        return res.status(500).send(err);
+    }
 });
-
-
-
-
 
 module.exports =router;

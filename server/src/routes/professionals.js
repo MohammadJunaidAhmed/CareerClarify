@@ -2,10 +2,11 @@ const express = require('express')
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const { Professional } = require('../models/Professional/professional');
+const { Experience } = require('../models/Experience/Experience');
 
 router.get('/', async(req,res)=>{
     try{
-        const profList = await Professional.find().select('-passwordHash');
+        const profList = await Professional.find().select('-passwordHash').populate('experiences');
         if(!profList){
             res.status(500).json({success:false})
         }
@@ -55,6 +56,33 @@ router.delete('/:id', async(req, res)=>{
     }).catch(err=>{
         return res.status(500).json({success: false, error: err}) 
     })
+});
+
+router.put('/addexp/:id', async(req, res)=>{
+    const profId = req.params.id;
+    const prof = await Professional.findById(profId);
+    if(!prof){
+        return res.status(404).json({message: 'Professional account with the given ID could not be found!'});
+    }
+    let exp = new Experience({
+        company: req.body.company,
+        designation: req.body.designation,
+        stillWorking: req.body.stillWorking,
+        startDate: req.body.startDate,
+        endDate: req.body.stillWorking ? 'to-date':req.body.endDate,
+        profId:req.params.id,
+        proof: req.body.proof,
+    });
+    exp = await exp.save();
+    const profUpdated = await Professional.findByIdAndUpdate(
+        profId,
+        { $push: { experiences: exp._id } },
+        { new: true }
+    );
+    if(!profUpdated){
+        return res.status(500).json({message: 'Experience could not be added'});
+    }
+    return res.status(200).send(profUpdated);
 });
 
 module.exports =router;
