@@ -4,10 +4,16 @@ const app = express();
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const cors = require('cors');
 const professionalRoutes = require('./src/routes/professionals');
 const experienceRoutes = require('./src/routes/experience');
 
 const api = process.env.API_URL;
+const port = process.env.PORT || 3000;
+
+
+app.use(cors());
+app.options('*', cors())
 
 //middleware 
 app.use(bodyParser.json());
@@ -28,7 +34,7 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
 })
 .then(()=>{
     console.log("Database connection is ready!")
-    app.listen(3000,'0.0.0.0', ()=>{
+    app.listen(port,'0.0.0.0', ()=>{
         console.log('server is running http://localhost:3000');
     })
 })
