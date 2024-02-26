@@ -6,6 +6,7 @@ import TestHome from './components/Home/TestHome';
 import Layout from './components/Layout/Layout';
 import MyAccount from './components/NavBar/Account/MyAccount/MyAccount';
 import ClientProfile from './components/Profiles/ClientProfile/ClientProfile';
+import AudioPage from './components/Requests/AudioRequest/AudioPage';
 import SearchPage from './components/SearchPage/SearchPage'
 import { Route, BrowserRouter as Router, Routes, Navigate } from "react-router-dom";
 
@@ -25,6 +26,10 @@ function App() {
             <Route path='/account'>
               <Route path='myaccount' element={<MyAccount/>}></Route>
               <Route path='help'></Route>
+            </Route>
+            <Route path='/requests'>
+              <Route path='audio' element={<AudioPage/>}></Route>
+              <Route path='video'></Route>
             </Route>
           </Routes>
         </LoginContextProvider>
