@@ -1,3 +1,0 @@
-ClientID: 888249575064-saopfcat5mqa7dv0i1n2e4limfnqadkg.apps.googleusercontent.com
-
-ClietSecret: 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

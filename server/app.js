@@ -1,14 +1,23 @@
+require('dotenv/config');
 const express = require('express');
 const app = express();
-require('dotenv/config');
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const professionalRoutes = require('./src/routes/professionals');
 
 const api = process.env.API_URL;
 
-const professionalRoutes = require('./src/routes/professionals');
+//middleware 
+app.use(bodyParser.json());
+app.use(express.json());
+app.use(morgan('tiny'));
+
 
 
 app.use(`${api}`, professionalRoutes);
+
+
 
 
 
