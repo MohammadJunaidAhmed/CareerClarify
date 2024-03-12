@@ -14,6 +14,9 @@ export const MainContextProvider = ({children}) => {
     const [isMouseOnAccountOverLay, setIsMouseOnAccountOverlay] = useState(false);
     const [isAccountOverLayComponentVisible,setAccountOverLayVisibility] = useState(false);
 
+    const [isAudioWindow, setIsAudioWindow] = useState(false);
+    const [isVideoWindow, setIsVideoWindow] = useState(false);
+
     useEffect(() => {
         const handleResize = () => {
         setScH(window.innerHeight);
@@ -31,7 +34,10 @@ export const MainContextProvider = ({children}) => {
     return (
         <mainContext.Provider value={{scW,scH,setScH,setScW,isMouseOnAccount, setIsMouseOnAccount,
           isMouseOnAccountOverLay, setIsMouseOnAccountOverlay,
-          isAccountOverLayComponentVisible,setAccountOverLayVisibility}}
+          isAccountOverLayComponentVisible,setAccountOverLayVisibility,
+          isAudioWindow, setIsAudioWindow,
+          isVideoWindow, setIsVideoWindow
+        }}
          >
             {children}
         </mainContext.Provider>

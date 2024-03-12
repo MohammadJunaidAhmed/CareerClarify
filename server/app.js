@@ -7,6 +7,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const professionalRoutes = require('./src/routes/professionals');
 const experienceRoutes = require('./src/routes/experience');
+const audioRequestRoutes = require('./src/routes/audioRequest');
 
 const api = process.env.API_URL;
 const port = process.env.PORT || 3000;
@@ -24,6 +25,7 @@ app.use(morgan('tiny'));
 
 app.use(`${api}/prof`, professionalRoutes);
 app.use(`${api}/exp`, experienceRoutes);
+app.use(`${api}/requests/audio`, audioRequestRoutes);
 
 
 

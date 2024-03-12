@@ -2,11 +2,15 @@ import { useContext, useState } from "react";
 import mainContext from "../../../../Contexts/MainContext/MainContext";
 import PropTypes from "prop-types";
 
-const BookingButton = ({ txt }) => {
+const BookingButton = ({ txt, type }) => {
   const [hvr, setHvr] = useState(false);
   const { scW } = useContext(mainContext);
+
+  const { setIsAudioWindow, setIsVideoWindow} = useContext(mainContext);
   return (
-    <div className="mt-5 mb-5">
+    <div className="mt-5 mb-5" onClick={type == "Audio" ? ()=>{setIsAudioWindow(true); console.log("Audio Clicked")} : 
+                                        type == "Video" ? ()=>{setIsVideoWindow(true); console.log("Video Clicked")} : 
+                                        ()=>{console.log("NOTHING!")}}>
       <button
         className={`${
           scW < 1000 ? "w-full bg-slate-400" : "w-3/4"

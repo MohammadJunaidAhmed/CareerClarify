@@ -8,9 +8,12 @@ const BookingSection = () => {
     <div>
         <div className="h-fit w-full"></div>
           <div className={`h-[30vh] w-full flex flex-col p-3 justify-start ${scW<600?'mb-10':''}`}>
-            <BookingButton txt={"Audio Messages"}/>
-            <BookingButton txt={"Video Messages"} type={"Message"}/>
-            <BookingButton txt={"Voice/Video call"}/>
+            {/* <Link as={Link} to={"/requests/audio"}>
+              <BookingButton txt={"Audio Messages"}/>
+            </Link> */}
+            <BookingButton txt={"Audio Messages"} type={"Audio"}/>
+            <BookingButton txt={"Video Messages"} type={"Video"}/>
+            <BookingButton txt={"Voice/Video call"} type={"OneOnOne"}/>
           </div>
           {/* <div className="h-[30vh] w-full"></div> */}
     </div>

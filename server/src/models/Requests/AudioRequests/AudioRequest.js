@@ -1,17 +1,17 @@
 const mongoose = require('mongoose');
 
 const audioRequestSchema = new mongoose.Schema({
-    audioUrl: {
-        type: String,
+    audioData: {
+        type: Buffer,
         required: true,
     },
     clientId: { //TODO: REF TO CLIENT
         type: String,
-        required: true,
+        // required: true,
     },
     professionalId: { //TODO: REF TO PROFESSIONAL
         type: String,
-        required: true,
+        // required: true,
     },
     status:{
         type: String,

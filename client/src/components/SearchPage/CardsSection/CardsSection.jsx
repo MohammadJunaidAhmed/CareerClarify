@@ -8,15 +8,15 @@ const CardsSection = () => {
   const searchParams = new URLSearchParams(location.search);
   const query = searchParams.get('query');
   const {scW} = useContext(mainContext);
-  // const profs = ['Junaid', 'Ahmed', 'Mohammad', 'Khan','Steve','John','Yahya', 'A','B','C','D','E','F','G','H','I','J','K']
+  const profs = ['Junaid', 'Ahmed', 'Mohammad', 'Khan','Steve','John','Yahya', 'A','B','C','D','E','F','G','H','I','J','K']
   // const profs = ['Junaid']
-  const [profs, setProfs] = useState([]);
-  useEffect(()=>{
-    fetch(`http://localhost:3000/api/v1/prof`)
-      .then(response => response.json())
-      .then(json => {setProfs(json)})
-      .catch(error => console.error(error));
-  }, [])
+  // const [profs, setProfs] = useState([]);
+  // useEffect(()=>{
+  //   fetch(`http://localhost:3000/api/v1/prof`)
+  //     .then(response => response.json())
+  //     .then(json => {setProfs(json)})
+  //     .catch(error => console.error(error));
+  // }, [])
   console.log(profs)
   return (
     <div className={`flex-1 ${scW < 540 ? 'pl-1 w-full':'pl-16 w-full'}`}>
