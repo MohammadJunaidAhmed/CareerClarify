@@ -1,5 +1,5 @@
 import { useState } from "react"
-import HomeSearch from "/Users/mohammadjunaidahmed/Documents/PROJECTS_MAIN_TEMP/CareerClarify/client/src/components/Home/HomeSearch/HomeSearch.jsx"
+import HomeSearch from "../HomeSearch/HomeSearch.jsx"
 
 const HomeNavbar = () => {
     const [active, setActive] = useState(true);  //TODO: CHANGE THIS STATE TO SOMEWHERE GLOBAL AND USE IT!
