@@ -22,10 +22,10 @@ function App() {
             <Route element={<Layout/>}>
               <Route path='/search' element={<SearchPage/>}/>
               <Route path='/client' element={<ClientProfile/>}/>
-            </Route>
-            <Route path='/account'>
-              <Route path='myaccount' element={<MyAccount/>}></Route>
-              <Route path='help'></Route>
+              <Route path='/account'>
+                <Route path='myaccount' element={<MyAccount/>}></Route>
+                <Route path='help'></Route>
+              </Route>
             </Route>
             <Route path='/requests'>
               <Route path='audio' element={<AudioPage/>}></Route>

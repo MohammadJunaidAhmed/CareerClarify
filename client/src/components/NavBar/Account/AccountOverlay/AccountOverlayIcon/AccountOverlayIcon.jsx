@@ -45,7 +45,7 @@ const AccountOverlayIcon = ({type}) => {
                     <h1 className="text-xl font-mono px-2">Login</h1>
                 </div>
             || 
-            <div>Nothing</div>
+            <div>ERROR</div>
         }
         
     </button>
