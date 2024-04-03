@@ -19,6 +19,7 @@ function App() {
           <Routes>
             <Route path={`/home`} element={<Navigate to={'/'}/>}/>
             <Route path='/' element={<Home/>}/>
+            <Route path='/test' element={<TestHome/>}/>
             <Route element={<Layout/>}>
               <Route path='/search' element={<SearchPage/>}/>
               <Route path='/client' element={<ClientProfile/>}/>
