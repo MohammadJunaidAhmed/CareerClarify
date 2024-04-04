@@ -1,10 +1,10 @@
 import loginContext from "../../Contexts/Login/LoginContext";
 import { useContext } from "react"
 
-const SearchBar = () => {
+const SearchBar = ({isSearchBarVisible}) => {
     const {isClick, setIsClick} = useContext(loginContext);
   return (
-    <div className="w-full">
+    <div className={`w-full ${isSearchBarVisible ? '' : 'invisible'}`}>
         <div className={`flex flex-col justify-center items-center pb-1`}>
           <div className={`flex-1 w-full bg-white h-10 rounded-md flex ${isClick?' outline outline-orange-400':''}`}>
             <input type="text" className=" flex-1 rounded-md px-5 focus:outline-none" placeholder={`Search for items`} onClick={()=>setIsClick(true)} onBlur={()=>setIsClick(false)}></input>

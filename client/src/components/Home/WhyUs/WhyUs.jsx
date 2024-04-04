@@ -2,8 +2,8 @@ import UseCase from "./UseCase/UseCase"
 
 const WhyUs = ({isClick, setIsClick}) => {
   return (
-    <div className={`w-full flex justify-center p-2 bg-gray-800 ${isClick ? ' text-slate-400':''}`}>
-        <div className="w-3/4 h-full bg-gray-600">
+    <div className={`w-full flex justify-center py-2 ${isClick ? ' text-slate-400':''}`}>
+        <div className="w-3/4 h-full">
             <h1 className="text-2xl font-bold font-mono ">Why CareerClarify?</h1>
             <div>
             <div className="flex-1 flex mt-3">

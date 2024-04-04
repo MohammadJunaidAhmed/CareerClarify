@@ -19,12 +19,12 @@ const CardsSection = () => {
   // }, [])
   console.log(profs)
   return (
-    <div className={`flex-1 ${scW < 540 ? 'pl-1 w-full':'pl-16 w-full'}`}>
-        <div className={`w-fit mt-3 ${scW < 600? 'ml-6 ':'ml-10'}`}>
+    <div className={`flex-1 ${scW < 600 ? 'pl-1 w-full':'w-full'}`}>
+        {/* <div className={`w-fit mt-3 ${scW < 600? 'ml-6 ':'ml-10'}`}>
             <h1 className={`text-white p-3 rounded-xl bg-slate-400`}>Results for {query}: </h1>
-        </div>
+        </div> */}
         {/* CARDS */}
-        <div className={`flex flex-wrap justify-items-start items-center ${scW < 540 ? 'justify-center':''}`}>
+        <div className={`flex flex-wrap justify-items-start gap-5 ${scW < 600 ? 'justify-center':''}`}>
           {
             profs.map((prof)=>{
               // console.log(prof.name);

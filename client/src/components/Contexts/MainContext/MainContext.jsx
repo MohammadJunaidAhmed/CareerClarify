@@ -17,6 +17,8 @@ export const MainContextProvider = ({children}) => {
     const [isAudioWindow, setIsAudioWindow] = useState(false);
     const [isVideoWindow, setIsVideoWindow] = useState(false);
 
+    const [visible, setVisible] = useState(true);
+
     useEffect(() => {
         const handleResize = () => {
         setScH(window.innerHeight);
@@ -36,7 +38,8 @@ export const MainContextProvider = ({children}) => {
           isMouseOnAccountOverLay, setIsMouseOnAccountOverlay,
           isAccountOverLayComponentVisible,setAccountOverLayVisibility,
           isAudioWindow, setIsAudioWindow,
-          isVideoWindow, setIsVideoWindow
+          isVideoWindow, setIsVideoWindow,
+          visible, setVisible
         }}
          >
             {children}

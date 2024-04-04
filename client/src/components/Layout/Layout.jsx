@@ -19,6 +19,13 @@ const Layout = () => {
       <div id="overlay" className={`fixed inset-0 bg-gray-800 bg-opacity-75 z-40 ${isClick?'':'hidden'}`}></div>
         <NavBar/>
         <section className="flex-1 flex flex-col">
+          {/* {
+            isClick 
+            &&
+            <div className="flex justify-center">
+                <div className="w-2/5 bg-yellow-500">Hello</div>
+            </div>
+          } */}
           {
             isAccountOverLayComponentVisible && (
               <div id="overLayAccount" 

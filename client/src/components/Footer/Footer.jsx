@@ -1,8 +1,11 @@
+import { useContext } from "react"
+import mainContext from "../Contexts/MainContext/MainContext";
 
 const Footer = () => {
+  const {scW} = useContext(mainContext);
   return (
-    <div className='w-screen pt-10 border-t-[1px] h-fit p-3 pb-3 border-slate-300 bg-[#111827] flex justify-center'>
-      <div className="w-5/6 flex">
+    <div className={`w-screen pt-10 border-t-[1px] h-fit pb-3 border-slate-300 bg-[#111827] flex justify-center ${scW < 600 ? 'p-1' : 'p-3'}`}>
+      <div className={`flex flex-wrap p-2 gap-2 ${scW < 600 ? 'w-full' : 'w-4/5'}`}>
         <div className="flex-1 flex flex-col mb-5 px-2">
           <div className="w-full">
             <h1 className="text-xl font-serif text-slate-400 font-bold">Get Connected</h1>

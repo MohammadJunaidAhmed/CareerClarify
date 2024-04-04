@@ -6,7 +6,7 @@ import mainContext from "../Contexts/MainContext/MainContext";
 import SearchBar from "./SearchBar/SearchBar";
 
 
-const NavBar = () => {
+const NavBar = ({isSearchBarVisible = true}) => {
   const {isLogin, isClick, setIsClick} = useContext(loginContext);
   const {scW} = useContext(mainContext);
   return (
@@ -20,9 +20,22 @@ const NavBar = () => {
           </Link>
         </div>
         {/* SEARCH BAR */}
-        <div className={`flex-[4_4_0%] flex flex-col justify-center items-center pb-1`}>
-          <SearchBar/>
-        </div>
+        { 
+          <div className={`flex-[4_4_0%] flex flex-col justify-center items-center pb-1`}>
+          <SearchBar isSearchBarVisible={isSearchBarVisible}/>
+          {
+            isClick &&
+            <div className="w-full bg-neutral-500 z-50">
+              <div className="w-[707px] fixed bg-yellow-500">
+                <h1>Query 1</h1>
+                <h1>Query 2</h1>
+                <h1>Query 3</h1>
+              </div>
+            </div>
+          }
+          </div>
+        }
+        
         {/* Account Section */}
         <div className={`flex-[3_3_0%] ${scW < 540 ? 'flex items-center justify-center':''}`}>
           <div className="w-full h-full flex">

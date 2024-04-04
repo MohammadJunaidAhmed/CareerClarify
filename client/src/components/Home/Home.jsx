@@ -1,41 +1,30 @@
-import { useContext, useState } from 'react'
-import BusinessImg from '../../assets/Business.png'
-import HomeSearch from './HomeSearch/HomeSearch'
-import WhyUs from './WhyUs/WhyUs'
-import mainContext from '../Contexts/MainContext/MainContext'
+import HomeSearch from "./HomeSearch/HomeSearch";
+import BusinessImg from "../../assets/Business.png";
+import WhyUs from "./WhyUs/WhyUs";
+import HeroBanner from "./Banners/HeroBanner/HeroBanner";
+import HomeNavbar from "./HomeNavbar/HomeNavbar";
+import HomeReviewCard from "./HomeReviewCard/HomeReviewCard.jsx";
+import Footer from "../Footer/Footer"
+import { useContext, useState } from "react";
+import mainContext from "../Contexts/MainContext/MainContext.jsx";
+import ReviewBanner from "./Banners/ReviewBanner/ReviewBanner.jsx";
 
-const Home = () => {
-  const [isClick, setIsClick] = useState(false);
-  const {scW} = useContext(mainContext);
+const TestHome = () => {
+  const{visible, setVisible} = useContext(mainContext);
   return (
-    <div className="text-white w-screen h-screen bg-[#1d3362] flex">
-      <div className={`w-screen h-screen bg-slate-500 fixed opacity-75 z-10 ${isClick? '':'hidden'}`}></div>
-      <div className={`flex-[3_3_0%] flex flex-col ${scW < 600 ? 'px-4' : 'px-10'}` }>
-        <div className={`flex-[1_1_0%] flex py-4 items-end `}>
-          <div className='w-full'>
-            <h1 className={`font-bold font-serif ${scW < 600 ? 'text-4xl pl-1':'text-6xl'}`}>CareerClarify</h1>
-            <p className={`text-slate-300 w-3/4 p-2 text-xl ${scW < 540 ? 'text-3xl' : 'text-4xl'}`}>Connections? Mentors? Helpers? Seniors? Anything else?.. <span className='text-slate-200 text-2xl font-serif'> We have it!</span></p>
-          </div>
-        </div>
-        <div className='flex-[3_3_0%] z-10'>
-          <HomeSearch isClick={isClick} setIsClick={setIsClick}/>
-          <WhyUs isClick={isClick} setIsClick={setIsClick}/>
-        </div>
-      </div>
+    <div className="text-white bg-[#1d3362] w-screen min-h-screen flex flex-col gap-10">
       {
-        scW < 640
-        ? 
-        <div className=''> </div>
-        : 
-        <div className='flex-[2_2_0%] bg-yellow-400 flex flex-col'>
-          <div className='flex-1 flex items-center p-2'>
-            <img src={BusinessImg} className='w-1/2'></img>
-          </div>
-          <div className=' flex-1'></div>
-        </div>
+        !visible &&
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-75 z-40"></div>
       }
+      <HomeNavbar/>
+      <HeroBanner/>
+      <WhyUs/>
+      <ReviewBanner/>
+      {/* <HomeReviewCard/> */}
+      <Footer/>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default TestHome;

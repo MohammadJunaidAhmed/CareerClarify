@@ -9,6 +9,7 @@ import ClientProfile from './components/Profiles/ClientProfile/ClientProfile';
 import AudioPage from './components/Requests/AudioRequest/AudioPage';
 import SearchPage from './components/SearchPage/SearchPage'
 import { Route, BrowserRouter as Router, Routes, Navigate } from "react-router-dom";
+import SearchPageTest from './components/SearchPage/SearchPageTest';
 
 function App() {
 
@@ -19,14 +20,14 @@ function App() {
           <Routes>
             <Route path={`/home`} element={<Navigate to={'/'}/>}/>
             <Route path='/' element={<Home/>}/>
-            <Route path='/test' element={<TestHome/>}/>
             <Route element={<Layout/>}>
-              <Route path='/search' element={<SearchPage/>}/>
+              <Route path='/search' element={<SearchPageTest/>}/>
+              <Route path='/searchtest' element={<SearchPage/>}/>
               <Route path='/client' element={<ClientProfile/>}/>
-              <Route path='/account'>
-                <Route path='myaccount' element={<MyAccount/>}></Route>
-                <Route path='help'></Route>
-              </Route>
+            </Route>
+            <Route path='/account'>
+              <Route path='myaccount' element={<MyAccount/>}></Route>
+              <Route path='help'></Route>
             </Route>
             <Route path='/requests'>
               <Route path='audio' element={<AudioPage/>}></Route>

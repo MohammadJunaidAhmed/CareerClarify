@@ -5,23 +5,25 @@ import mainContext from "../../Contexts/MainContext/MainContext";
 
 
 
-const HomeSearch = ({isClick, setIsClick}) => {
+const HomeSearch = () => {
   const [query, setQuery] = useState('');
   const {scW} = useContext(mainContext);
+  const {visible, setVisible} = useContext(mainContext);
   const navigate = useNavigate();
   const handleSubmit = (e)=>{
     e.preventDefault()
+    setVisible(true);
     navigate(`/search?query=${query}`)
   }
   return (
     <div className={`bg-white p-1 rounded-lg z-50 ${scW < 600 ? 'w-full' : 'w-2/3'}`}>
         <div className={`flex-[4_4_0%] flex justify-center items-center`}>
-          <form onSubmit={handleSubmit} className={`flex-1 bg-white h-10 rounded-md flex ${isClick?' outline outline-orange-400':''}`}>
+          <form onSubmit={handleSubmit} className={`flex-1 bg-white h-10 rounded-md flex ${!visible?' outline outline-orange-400':''}`}>
             <input 
             type="text" className="flex-1 rounded-md px-5 focus:outline-none text-black font-bold font-mono" 
             placeholder={`Search for items`} 
-            onClick={()=>setIsClick(true)} 
-            onBlur={()=>setIsClick(false)}
+            onClick={()=>setVisible(false)} 
+            onBlur={()=>setVisible(true)}
             value={query}
             onChange={(e)=>setQuery(e.target.value)}>
             </input>
@@ -35,10 +37,10 @@ const HomeSearch = ({isClick, setIsClick}) => {
   )
 }
 
-HomeSearch.propTypes = {
-  //PROP-VALIDATION
-  isClick: PropTypes.bool.isRequired,
-  setIsClick: PropTypes.func.isRequired
-};
+// HomeSearch.propTypes = {
+//   //PROP-VALIDATION
+//   visible: PropTypes.bool.isRequired,
+//   setVisible: PropTypes.func.isRequired
+// };
 
 export default HomeSearch
