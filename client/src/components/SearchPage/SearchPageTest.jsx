@@ -12,7 +12,7 @@ const SearchPageTest = () => {
     const query = searchParams.get('query');
   return (
     <div className={`w-screen h-fit flex bg-[#111827] pb-10 justify-center`}>
-        <div className={`h-full w-full flex flex-col ${scW < 600 ? 'w-full' : 'w-4/5'} `}>
+        <div className={`h-full flex flex-col ${scW < 600 ? 'w-full' : 'w-4/5'} `}>
             <div className={`py-5 h-full w-full ${scW < 600 ? 'px-3' : 'px-3'}`}>
                 <h1 className="text-xl text-white font-serif">Results for <span className="font-bold">{query}</span></h1> {/*TODO: ADD DYNAMIC QUERY HERE*/}
                 {/* Filters here */}
