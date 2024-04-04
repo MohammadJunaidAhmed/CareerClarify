@@ -1,15 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import Sidebar from './components/sidebar/Sidebar'
+import Home from './components/Home/Home';
+import Layout from './components/Layout/Layout';
+import Sidebar from './components/Sidebar/Sidebar'
+import { Route, BrowserRouter as Router, Routes, Navigate } from "react-router-dom";
 
 function App() {
 
   return (
-    <div>
-        <Sidebar/>
-    </div>
+    <Router>
+      <Routes>
+        <Route element={<Layout/>}>
+          <Route path='/' element={<Home/>}></Route>
+        </Route>
+      </Routes>
+    </Router>
   )
 }
 
