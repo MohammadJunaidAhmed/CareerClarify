@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import loginContext from "../Contexts/Login/LoginContext";
 import mainContext from "../Contexts/MainContext/MainContext";
 import AccountOverlay from "../NavBar/Account/AccountOverlay/AccountOverlay";
+import NavBarTest from "../NavBar/NavBarTest";
 
 
 const Layout = () => {
@@ -18,6 +19,7 @@ const Layout = () => {
     <div className={`h-screen w-screen flex flex-col overflow-auto`}>
       <div id="overlay" className={`fixed inset-0 bg-gray-800 bg-opacity-75 z-40 ${isClick?'':'hidden'}`}></div>
         <NavBar/>
+        {/* <NavBarTest/> */}
         <section className="flex-1 flex flex-col">
           {/* {
             isClick 

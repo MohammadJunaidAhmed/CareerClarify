@@ -37,7 +37,7 @@ const NavBar = ({isSearchBarVisible = true}) => {
         }
         
         {/* Account Section */}
-        <div className={`flex-[3_3_0%] ${scW < 540 ? 'flex items-center justify-center':''}`}>
+        <div className={`flex-[3_3_0%] px-5 ${scW < 540 ? 'flex items-center justify-center':''}`}>
           <div className="w-full h-full flex">
             {
               isLogin ? 
