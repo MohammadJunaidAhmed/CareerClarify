@@ -4,12 +4,16 @@ import { Link } from 'react-router-dom'
 const Sidebar = () => {
   const [activePage, setActivePage] = useState('1');
   return (
-    <div className='h-screen w-28 bg-neutral-950 flex'>
-      <div className='flex-1 flex flex-col gap-16 pt-[10vh]'>
-        <Link><div className={`w-full h-20 bg-white flex items-center justify-center cursor-pointer ${activePage === '1' ? 'bg-blue-600' : ''}`} id='1' onClick={()=>{setActivePage('1')}}>ABC</div></Link>
-        <Link><div className={`w-full h-20 bg-white flex items-center justify-center cursor-pointer ${activePage === '2' ? 'bg-blue-600' : ''}`} id='2' onClick={()=>{setActivePage('2')}}>ABC</div></Link>
-        <Link><div className={`w-full h-20 bg-white flex items-center justify-center cursor-pointer ${activePage === '3' ? 'bg-blue-600' : ''}`} id='3' onClick={()=>{setActivePage('3')}}>ABC</div></Link>
-        <Link><div className={`w-full h-20 bg-white flex items-center justify-center cursor-pointer ${activePage === '4' ? 'bg-blue-600' : ''}`} id='4' onClick={()=>{setActivePage('4')}}>ABC</div></Link>
+    <div className='h-full w-[12vw] p-1 bg-[#0D2C32] flex flex-col'>
+      <div className='w-full h-20 flex px-3 py-2 justify-start items-end border-slate-500 border-b-[1px]'>
+        <h1 className='text-xl text-slate-300'>Career Clarify</h1>
+      </div>
+      <div className='flex-1 flex flex-col gap-4 pt-[3vh]'>
+        <Link to={'/'}><div className={`w-full h-20 text-slate-300 flex items-center justify-center cursor-pointer ${activePage === '1' ? 'bg-[#7A7A7A]' : ''}`} id='1' onClick={(e)=>{setActivePage(e.target.id)}}>Home</div></Link>
+        <Link to={'/page2'}><div className={`w-full h-20 text-slate-300 flex items-center justify-center cursor-pointer ${activePage === '2' ? 'bg-[#7A7A7A]' : ''}`} id='2' onClick={(e)=>{setActivePage(e.target.id)}}>Orders</div></Link>
+        <Link to={'/page1'}><div className={`w-full h-20 text-slate-300 flex items-center justify-center cursor-pointer ${activePage === '3' ? 'bg-[#7A7A7A]' : ''}`} id='3' onClick={(e)=>{setActivePage(e.target.id)}}>My services</div></Link>
+        <Link to={'/page2'}><div className={`w-full h-20 text-slate-300 flex items-center justify-center cursor-pointer ${activePage === '4' ? 'bg-[#7A7A7A]' : ''}`} id='4' onClick={(e)=>{setActivePage(e.target.id)}}>Analytics</div></Link>
+        <Link to={'/page1'}><div className={`w-full h-20 text-slate-300 flex items-center justify-center cursor-pointer ${activePage === '5' ? 'bg-[#7A7A7A]' : ''}`} id='5' onClick={(e)=>{setActivePage(e.target.id)}}>Settings</div></Link>
       </div>
     </div>
   )

@@ -3,8 +3,8 @@ import Sidebar from "../Sidebar/Sidebar";
 
 const Layout = () => {
   return (
-    <div className="h-screen w-screen">
-        <div className="h-full w-full flex">
+    <div className="h-fit min-h-screen w-screen flex overflow-auto">
+        <div className="w-full flex-1 flex">
             <Sidebar/>
             <section className="flex-1">
                 <Outlet/>
