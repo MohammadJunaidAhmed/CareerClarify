@@ -1,12 +1,12 @@
 import Chart from 'chart.js/auto';
-import React from 'react';
-import { Bar, Line } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
+import rightArrow from "../../../../assets/right-arrow.png"
 
 
 
 const TotalOrders = () => {
-    const today = new Date();
-    const currentDay = 25;
+    // const today = new Date();
+    const currentDay = 30;
     const labels = [];
     var total = 0;
     for (let i = 1; i <= currentDay; i++) {
@@ -48,10 +48,11 @@ const TotalOrders = () => {
       };
     
       return (
-        <div className='w-1/2 bg-[#F5F5F5] p-2 rounded-xl'>
-          <h2 className='text-2xl'>Total Orders <span className='font-bold'>{total}</span></h2>
+        <div className='w-2/5 bg-[#F5F5F5] p-2 rounded-xl'>
+          <h2 className='text-2xl px-3 pt-2'>Total Orders <span className='font-bold'>{total}</span></h2>
           {/* <Line data={data} options={options} /> */}
           <Bar data={data} options={options}/>
+          <h1 className='flex justify-center items-center py-1 cursor-pointer'>View Detailed report <img src={rightArrow} className='px-2'/></h1>
         </div>
       );
 }

@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom"
 import box from "../../../assets/box.png"
 import info from "../../../assets/info.png"
+import { useContext } from "react"
+import mainContext from "../../Contexts/MainContext"
 
 const PendingOrders = () => {
+    const {activePage, setActivePage} = useContext(mainContext);
   return (
     <div className="w-[400px] h-[150px] bg-[#F5F5F5] rounded-xl px-7 py-3 flex flex-col">
         <div className="flex-1">
@@ -18,8 +22,10 @@ const PendingOrders = () => {
                     <h1 className="text-lg  text-[#7A7A7A]">Unfulfilled</h1>
                 </div>
             </div>
-            <div className="flex items-end">
-                <div className="p-1 bg-[#E0E0E0] rounded-lg">See All </div>
+            <div className="flex items-end" onClick={()=>{setActivePage('2')}}>
+                <Link to='/orders'>
+                    <div className="p-1 bg-[#E0E0E0] rounded-lg">See All </div>
+                </Link>
             </div>
         </div>
     </div>

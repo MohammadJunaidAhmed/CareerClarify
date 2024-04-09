@@ -6,22 +6,36 @@ import calender from "../../assets/calendar.png"
 import downArrow from "../../assets/down-arrow.png"
 import TotalOrders from "./Cards/ChartCards/TotalOrders"
 import { useState } from "react"
+import email from "../../assets/email.png"
+import notification from "../../assets/notification.png"
+import upArrow from "../../assets/arrow-up.png"
+import TopServices from "./Cards/ChartCards/TopServices"
+import SearchBar from "./SearchBar/SearchBar"
+import NavElements from "./NavElements/NavElements"
 
 const Home = () => {
   const [dataFormat, setDataFormat] = useState('m');
   const [isDataFormatOpen, setIsDataFormatOpen] = useState(false);
+  const pageHeader="HOME";
   return (
     <div className="w-full h-full flex">
       <div className="flex-1 bg-[#E0E0E0] flex flex-col">
-        <div className=" h-24 w-full bg-[#F5F5F5] shadow-sm"></div>
-        <div className="flex-1 p-7 flex flex-col">
+        <div className=" h-[90px] w-full bg-[#F5F5F5] shadow-sm flex justify-between px-7 py-2">
+          <div className=" flex items-center text-xl font-serif">
+            {/* TODO: MAKE THIS FONT APPEALING!  */}
+            <h1>{pageHeader}</h1>
+          </div>
+          <SearchBar/>
+          <NavElements/>
+        </div>
+        <div className="flex-1 px-7 pt-3 pb-2 flex flex-col">
           <div className=" w-full h-20 flex justify-between">
             <h1 className="text-3xl flex items-center justify-center">Overview</h1>
 
             <div className="h-full w-56 items-center justify-center p-2 flex flex-col relative cursor-pointer"  onClick={()=>{setIsDataFormatOpen(!isDataFormatOpen)}}> {/*TODO: UPDATE UI HERE*/}
               <div className="h-1/2 w-full text-lg bg-[#F5F5F5] text-[#7A7A7A] flex justify-center items-center gap-4 rounded-lg border-2 border-black">
-                <img src={calender} className="h-2/3"/>
-                <h1>
+                <img src={calender} className={`h-2/3 `}/>
+                <div>
                   {
                     dataFormat === 'w' && <h1> Last 7 Days</h1>
                     ||
@@ -29,8 +43,8 @@ const Home = () => {
                     || 
                     dataFormat === 'y' && <h1> Last 365 Days</h1>
                   }
-                </h1>
-                <img src={downArrow} className="h-2/3"/>
+                </div>
+                <img src={downArrow} className={`h-2/3  duration-500 ${isDataFormatOpen ? '-rotate-180' : ''}`}/>
               </div>
               {
                 isDataFormatOpen &&
@@ -56,9 +70,10 @@ const Home = () => {
                 <PendingOrders/>
                 <SalesTotal/>
               </div>
-              <div className="w-full flex-1 p-2 flex gap-5">
+              <div className="w-full flex-1 pt-2 gap-5 flex justify-between">
                 <TotalOrders/>
                 <TotalOrders/>
+                <TopServices/>
               </div>
             </div>
           </div>
