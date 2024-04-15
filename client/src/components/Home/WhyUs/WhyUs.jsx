@@ -1,4 +1,7 @@
-import UseCase from "./UseCase/UseCase"
+import UseCase1 from "./UseCase/UseCase1"
+import UseCase2 from "./UseCase/UseCase2"
+import UseCase3 from "./UseCase/UseCase3"
+import UseCase4 from "./UseCase/UseCase4"
 
 const WhyUs = ({isClick, setIsClick}) => {
   return (
@@ -9,12 +12,12 @@ const WhyUs = ({isClick, setIsClick}) => {
             <div className="flex-1 flex mt-3">
                 <div className="flex-[5_5_0%]  flex pr-2 pt-2 py-2">
                     <div className="flex-1">
-                        <UseCase/>
-                        <UseCase/>
+                        <UseCase1/>
+                        <UseCase2/>
                     </div>
                     <div className="flex-1  border-l-2 border-black pl-4">
-                        <UseCase/>
-                        <UseCase/>
+                        <UseCase3/>
+                        <UseCase4/>
                     </div>
                 </div>
             </div>

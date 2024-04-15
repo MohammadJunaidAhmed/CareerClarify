@@ -10,6 +10,7 @@ import AudioPage from './components/Requests/AudioRequest/AudioPage';
 import SearchPage from './components/SearchPage/SearchPage'
 import { Route, BrowserRouter as Router, Routes, Navigate } from "react-router-dom";
 import SearchPageTest from './components/SearchPage/SearchPageTest';
+import PageNotFound from './components/Errors/PageNotFound';
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
               <Route path='audio' element={<AudioPage/>}></Route>
               <Route path='video'></Route>
             </Route>
+            <Route path='/*' element={<PageNotFound/>}></Route>
           </Routes>
         </LoginContextProvider>
       </MainContextProvider>
