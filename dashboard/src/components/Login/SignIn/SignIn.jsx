@@ -1,8 +1,14 @@
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import loginContext from "../../Contexts/LoginContext";
 
 const SignIn = () => {
+    const {setIsLoggedIn} = useContext(loginContext);
     const navigate = useNavigate();
-    const handleSignIn = () =>{
+    const handleSignIn = () => {
+        // e.preventDefault();
+        // TODO: CHECK BEFORE SENDING THIS!
+        setIsLoggedIn(true);
         navigate('/')
     }
   return (
@@ -26,8 +32,8 @@ const SignIn = () => {
                     </div>
                     <h1>Forgot Password</h1>
                 </div>
-                <button className="bg-green-400 w-[95%] rounded-3xl text-xl p-2 flex justify-center" type="submit"> Log In</button>
-                <div className="w-[95%] flex justify-center gap-1">Don't have an account? <Link to='/signup'> <button className="font-bold cursor-pointer">Register</button> </Link></div>
+                <button className="bg-green-400 w-[95%] rounded-3xl text-xl p-2 flex justify-center" type="submit" onClick={()=>{setIsLoggedIn(true)}}> Log In</button>
+                <div className="w-[95%] flex justify-center gap-1"> Don't have an account? <Link to='/signup'> <button className="font-bold cursor-pointer">Register</button> </Link></div>
             </div>
         </form>
     </div>

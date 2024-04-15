@@ -1,5 +1,6 @@
 import HomeSearch from "../../HomeSearch/HomeSearch"
 import TrustedByUs from "./TrustedByUs"
+import TeachImg from "../../../../assets/teach.png"
 
 const HeroBanner = () => {
   return (
@@ -17,7 +18,9 @@ const HeroBanner = () => {
                     </div>
                   </div>
                 </div>
-                <div className="bg-yellow-400 flex-1"></div>
+                <div className="bg-yellow-400 flex-1 flex justify-center items-center">
+                  <img src={TeachImg} className="w-2/3"/>
+                </div>
             </div>
             <div className=" h-24 w-full bg-slate-600">
                 <h1 className="font-serif text-xl px-1">Trusted by: </h1>

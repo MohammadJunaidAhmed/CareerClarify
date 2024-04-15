@@ -23,16 +23,6 @@ const NavBar = ({isSearchBarVisible = true}) => {
         { 
           <div className={`flex-[4_4_0%] flex flex-col justify-center items-center pb-1`}>
           <SearchBar isSearchBarVisible={isSearchBarVisible}/>
-          {
-            isClick &&
-            <div className="w-full bg-neutral-500 z-50">
-              <div className="w-[707px] fixed bg-yellow-500">
-                <h1>Query 1</h1>
-                <h1>Query 2</h1>
-                <h1>Query 3</h1>
-              </div>
-            </div>
-          }
           </div>
         }
         

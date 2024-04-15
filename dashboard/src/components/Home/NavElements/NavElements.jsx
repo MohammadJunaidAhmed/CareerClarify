@@ -1,16 +1,20 @@
 import email from "../../../assets/email.png";
 import notification from "../../../assets/notification.png";
 import upArrow from "../../../assets/arrow-up.png";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import loginContext from "../../Contexts/LoginContext";
 
 const NavElements = () => {
 
     const [isOpen, setIsOpen] = useState(false);
 
+    const {setIsLoggedIn} = useContext(loginContext);
+
     const navigate = useNavigate();
 
     const handleLogout = () => {
+        setIsLoggedIn(false)
         navigate('/signin')
     }
     
