@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import mainContext from "../../Contexts/MainContext/MainContext";
 
 
@@ -47,7 +47,8 @@ const HomeSearch = () => {
     "LTI",
     "Qualcomm",
     "Atlassian",
-    "DE Shaw"
+    "DE Shaw",
+    "Juspay",
   ]
   const [query, setQuery] = useState('');
   const {scW} = useContext(mainContext);

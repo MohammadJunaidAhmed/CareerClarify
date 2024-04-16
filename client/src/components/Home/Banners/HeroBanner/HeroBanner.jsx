@@ -1,7 +1,6 @@
 import HomeSearch from "../../HomeSearch/HomeSearch"
 import TrustedByUs from "./TrustedByUs"
 import TeachImg from "../../../../assets/teach.png"
-import EarthPic from "../../../../assets/EarthPic.jpg"
 
 
 const HeroBanner = () => {

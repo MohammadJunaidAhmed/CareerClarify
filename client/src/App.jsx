@@ -11,6 +11,8 @@ import SearchPage from './components/SearchPage/SearchPage'
 import { Route, BrowserRouter as Router, Routes, Navigate } from "react-router-dom";
 import SearchPageTest from './components/SearchPage/SearchPageTest';
 import PageNotFound from './components/Errors/PageNotFound';
+import SignIn from './components/Login/SignIn/SignIn';
+import SignUp from './components/Login/SignUp/SignUp';
 
 function App() {
 
@@ -34,6 +36,9 @@ function App() {
               <Route path='audio' element={<AudioPage/>}></Route>
               <Route path='video'></Route>
             </Route>
+            <Route path='/login' element={<SignIn/>}></Route>
+            <Route path='/signin' element={<Navigate to={'/login'}/>}></Route>
+            <Route path='/signup' element={<SignUp/>}></Route>
             <Route path='/*' element={<PageNotFound/>}></Route>
           </Routes>
         </LoginContextProvider>

@@ -1,10 +1,10 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import googleLogo from "/Users/mohammadjunaidahmed/Documents/PROJECTS_MAIN_TEMP/CareerClarify/client/src/assets/GoogleLogo.png"
-import microsoftLogo from "/Users/mohammadjunaidahmed/Documents/PROJECTS_MAIN_TEMP/CareerClarify/client/src/assets/MicrosoftLogo.jpg"
-import amazonLogo from "/Users/mohammadjunaidahmed/Documents/PROJECTS_MAIN_TEMP/CareerClarify/client/src/assets/AmazonLogo.png"
-import appleLogo from "/Users/mohammadjunaidahmed/Documents/PROJECTS_MAIN_TEMP/CareerClarify/client/src/assets/AppleLogo.jpg"
-import facebookLogo from "/Users/mohammadjunaidahmed/Documents/PROJECTS_MAIN_TEMP/CareerClarify/client/src/assets/FacebookLogo.png"
+import googleLogo from "../../../../assets/GoogleLogo.png"
+import microsoftLogo from "../../../../assets/MicrosoftLogo.jpg"
+import amazonLogo from "../../../../assets/AmazonLogo.png"
+import appleLogo from "../../../../assets/AppleLogo.jpg"
+import facebookLogo from "../../../../assets/FacebookLogo.png"
 
 const TrustedByUs = () => {
     const featured = [1,2,3];
