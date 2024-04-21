@@ -31,12 +31,16 @@ app.use(`${api}/requests/audio`, audioRequestRoutes);
 
 
 
-mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
-    dbName: 'careerclarify-database'
+app.listen(port,'0.0.0.0', ()=>{
+    console.log('server is running http://localhost:3000');
+    console.log(process.env.PORT)
 })
-.then(()=>{
-    console.log("Database connection is ready!")
-    app.listen(port,'0.0.0.0', ()=>{
-        console.log('server is running http://localhost:3000');
-    })
-})
+// mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
+//     dbName: 'careerclarify-database'
+// })
+// .then(()=>{
+//     console.log("Database connection is ready!")
+//     app.listen(port,'0.0.0.0', ()=>{
+//         console.log('server is running http://localhost:3000');
+//     })
+// })

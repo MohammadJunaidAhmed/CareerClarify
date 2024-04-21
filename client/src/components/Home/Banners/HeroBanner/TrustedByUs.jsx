@@ -7,7 +7,7 @@ import appleLogo from "../../../../assets/AppleLogo.jpg"
 import facebookLogo from "../../../../assets/FacebookLogo.png"
 
 const TrustedByUs = () => {
-    const featured = [1,2,3];
+    // const featured = [1,2,3];
     const responsive = {
         desktop: {
           breakpoint: { max: 3000, min: 1024 },

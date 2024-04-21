@@ -1,4 +1,4 @@
-import { Outlet, useSearchParams } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
 import { useContext, useEffect } from "react";
 import loginContext from "../Contexts/LoginContext";
