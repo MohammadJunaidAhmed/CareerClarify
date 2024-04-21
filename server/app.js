@@ -8,6 +8,8 @@ const cors = require('cors');
 const professionalRoutes = require('./src/routes/professionals');
 const experienceRoutes = require('./src/routes/experience');
 const audioRequestRoutes = require('./src/routes/audioRequest');
+const authJwt = require('./src/helpers/jwt');
+const errorHandler = require('./src/helpers/error-handler');
 
 const api = process.env.API_URL;
 const port = process.env.PORT || 3000;
@@ -20,6 +22,8 @@ app.options('*', cors())
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(morgan('tiny'));
+app.use(authJwt());
+app.use(errorHandler);
 
 
 
@@ -31,16 +35,12 @@ app.use(`${api}/requests/audio`, audioRequestRoutes);
 
 
 
-app.listen(port,'0.0.0.0', ()=>{
-    console.log('server is running http://localhost:3000');
-    console.log(process.env.PORT)
+mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
+    dbName: 'careerclarify-database'
 })
-// mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
-//     dbName: 'careerclarify-database'
-// })
-// .then(()=>{
-//     console.log("Database connection is ready!")
-//     app.listen(port,'0.0.0.0', ()=>{
-//         console.log('server is running http://localhost:3000');
-//     })
-// })
+.then(()=>{
+    console.log("Database connection is ready!")
+    app.listen(port,'0.0.0.0', ()=>{
+        console.log('server is running http://localhost:3000');
+    })
+})

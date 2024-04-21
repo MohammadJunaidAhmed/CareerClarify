@@ -3,13 +3,26 @@ import { Link, useNavigate } from "react-router-dom";
 import loginContext from "../../Contexts/LoginContext";
 
 const SignIn = () => {
-    const {setIsLoggedIn} = useContext(loginContext);
+    const {setIsLoggedIn,
+        loginEmail, setLoginEmail,
+        loginPassword, setLoginPassword} = useContext(loginContext);
     const navigate = useNavigate();
-    const handleSignIn = () => {
-        // e.preventDefault();
+    const handleSignIn = async(e) => {
+        e.preventDefault();
+        console.log(loginEmail,loginPassword);
         // TODO: CHECK BEFORE SENDING THIS!
-        setIsLoggedIn(true);
-        navigate('/')
+        const response = await fetch('http://localhost:3000/api/v1/prof/login/',{
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email:loginEmail, password:loginPassword }),
+        })
+        console.log(response)
+        if(response.ok){
+            setIsLoggedIn(true);
+            navigate('/')
+        }
     }
   return (
     <div className="h-screen w-screen flex">
@@ -22,8 +35,18 @@ const SignIn = () => {
                 <h1 className="text-2xl">CareerClarify</h1>
                 <h1 className="text-5xl">LETS GET STARTED</h1>
                 <div className="flex flex-col gap-6 text-black">
-                    <input className="w-[95%] p-3 bg-[#E0E0E0] rounded-3xl placeholder:text-black cursor-pointer" placeholder="Email"/>
-                    <input className="w-[95%] p-3 bg-[#E0E0E0] rounded-3xl placeholder:text-black cursor-pointer" placeholder="Password"/>
+                    <input 
+                    className="w-[95%] p-3 bg-[#E0E0E0] rounded-3xl placeholder:text-black cursor-pointer" 
+                    placeholder="Email"
+                    type="email"
+                    onChange={(e)=>{setLoginEmail(e.target.value)}}
+                    />
+                    <input 
+                    className="w-[95%] p-3 bg-[#E0E0E0] rounded-3xl placeholder:text-black cursor-pointer" 
+                    placeholder="Password"
+                    type="password"
+                    onChange={(e)=>{setLoginPassword(e.target.value)}}
+                    />
                 </div>
                 <div className="px-3 py-1 flex w-[95%] justify-between">
                     <div>
@@ -33,7 +56,7 @@ const SignIn = () => {
                     <h1>Forgot Password</h1>
                 </div>
                 <button className="bg-green-400 w-[95%] rounded-3xl text-xl p-2 flex justify-center" type="submit" onClick={()=>{setIsLoggedIn(true)}}> Log In</button>
-                <div className="w-[95%] flex justify-center gap-1"> Don't have an account? <Link to='/signup'> <button className="font-bold cursor-pointer">Register</button> </Link></div>
+                <div className="w-[95%] flex justify-center gap-1"><h1> Don't have an account?</h1> <Link to='/signup'> <button className="font-bold cursor-pointer">Register</button> </Link></div>
             </div>
         </form>
     </div>

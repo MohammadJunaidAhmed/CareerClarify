@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const { Professional } = require('../models/Professional/professional');
 const { Experience } = require('../models/Experience/Experience');
+const jwt = require('jsonwebtoken');
 
 router.get('/', async(req,res)=>{
     try{
@@ -16,6 +17,32 @@ router.get('/', async(req,res)=>{
         res.status(500).json({error: err});
     }
 });
+
+router.post('/login', async(req,res)=>{
+    try{
+        const prof = await Professional.findOne({email:req.body.email});
+        const secret = process.env.SECRET;
+        if(!prof){
+            return res.status(404).send('Professional not found')
+        }
+        if(prof && bcrypt.compareSync(req.body.password,prof.passwordHash)){
+            const token = jwt.sign(
+                {
+                    profId: prof._id.toString()
+                },
+                secret,
+                {expiresIn : '1d'}
+            )
+            res.status(200).send(token);
+        }
+        else{
+            res.status(400).send('Wrong Password');
+        }
+    }
+    catch(e){
+        res.status(500).send(e);
+    }
+})
 
 router.post('/register', async(req, res)=>{
     try{
