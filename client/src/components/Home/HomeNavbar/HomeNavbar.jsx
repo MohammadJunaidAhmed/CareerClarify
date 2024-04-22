@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react"
 import HomeSearch from "../HomeSearch/HomeSearch.jsx"
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import loginContext from "../../Contexts/Login/LoginContext.jsx";
 
 const HomeNavbar = () => {
     const navigate = useNavigate();
     const [active, setActive] = useState(true);  //TODO: CHANGE THIS STATE TO SOMEWHERE GLOBAL AND USE IT!
     const [isClick, setIsClick] = useState(false);
+    const {isLogin} = useContext(loginContext);
     const isActive = () => {
         window.scrollY > 150 ? setActive(false) : setActive(true);
     }
     useEffect(()=>{
         window.addEventListener("scroll", isActive);
-        console.log(window.scrollY)
     },[])
   return (
     <div className={`w-full h-16 flex justify-center z-50 fixed duration-500 ${active ?  'bg-[#1d3362]' : 'bg-black' }`}>
@@ -33,14 +35,21 @@ const HomeNavbar = () => {
                         <div> </div>
                     }
                     {/* TODO: ROUTE TO DASHBOARD */}
-                    <button className="">Professional?</button>
-                    <button className="hover:text-slate-300" onClick={()=>{navigate('/login')}}>Sign In</button>
-                    <button 
-                        className={`p-2 px-3 hover:bg-emerald-500 border-[2px] cursor-pointer ${active ? 'border-black' : 'border-white'}`}
-                        onClick={()=>{navigate('/signup')}}
-                        >
-                        Join
-                    </button>
+                    {
+                        !isLogin ?
+                        <>
+                            <button className="">Professional?</button>
+                            <button className="hover:text-slate-300" onClick={()=>{navigate('/login')}}>Sign In</button>
+                            <button 
+                                className={`p-2 px-3 hover:bg-emerald-500 border-[2px] cursor-pointer ${active ? 'border-black' : 'border-white'}`}
+                                onClick={()=>{navigate('/signup')}}
+                                >
+                                Join
+                            </button>
+                        </>
+                        :
+                        <div> </div>
+                    }
                 </div>
             </div>
         </div>

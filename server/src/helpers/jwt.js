@@ -22,6 +22,7 @@ function authJwt() {
             `${api}/prof/register/`,
             `${api}/prof/register`,
             `${api}/user/register`,
+            `${api}/user/register/`,
             `${api}/user/login/`,
             `/api/v1/user/login`,
             `${api}/user/`,

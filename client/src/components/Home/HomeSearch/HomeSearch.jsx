@@ -12,7 +12,7 @@ const HomeSearch = () => {
     const fetchCompanies = async() => {
       await fetch('http://localhost:3000/api/v1/exp/unqcompanies', {method: 'GET'})
       .then(response=>response.json())
-      .then(json => {setSearchQueries(json); console.log(json)})
+      .then(json => {setSearchQueries(json)})
       .catch(error => console.error(error));
     }
     fetchCompanies();

@@ -7,15 +7,22 @@ import TitleSection from "./TitleSection/TitleSection";
 import mainContext from "../../Contexts/MainContext/MainContext";
 import AudioPage from "../../Requests/AudioRequest/AudioPage";
 import VideoPage from "../../Requests/VideoRequest/VideoPage";
+import { useLocation } from 'react-router-dom';
+import { useState } from "react";
 
 const ClientProfile = () => {
   const {scW} = useContext(mainContext);
   const {isAudioWindow, isVideoWindow} = useContext(mainContext);
   const ref = useRef(null);
+  const location = useLocation();
+  const [name, setName] = useState('');
+  var tempName;
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
   useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    setName(searchParams.get('name'))
 
     // Ensure that the effect runs after the component has mounted
     scrollToTop();
@@ -39,7 +46,7 @@ const ClientProfile = () => {
         scW<700 ? 
         <div className={`h-full flex ${scW < 800?'w-[95vw] flex-col':'w-[85vw]'}`}>
         <div className="flex flex-col ">
-          <TitleSection/>
+          <TitleSection name={name}/>
           <BookingSection/>
           <AboutSection/>
           <ExperienceSection/>
@@ -54,7 +61,7 @@ const ClientProfile = () => {
       :
       <div className={`h-full flex ${scW < 800?'w-[95vw]':'w-[85vw]'}`}>
         <div className="flex-[2_2_0%] flex flex-col">
-          <TitleSection/>
+          <TitleSection name={name}/>
           <AboutSection/>
           <ExperienceSection/>
         </div>

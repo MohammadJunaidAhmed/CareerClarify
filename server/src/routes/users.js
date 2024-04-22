@@ -16,6 +16,18 @@ router.get('/', async(req,res)=>{
         res.status(500).json({error: err});
     }
 });
+router.get('/:id', async(req,res)=>{
+    try{
+        const user = await User.findById(req.params.id).select('-passwordHash');
+        if(!user){
+            res.status(500).json({success:false})
+        }
+        res.status(200).json(user);
+    }
+    catch(err){
+        res.status(500).json({error: err});
+    }
+});
 
 router.post('/login', async(req,res)=>{
     try{
@@ -50,8 +62,6 @@ router.post('/register', async(req, res)=>{
             email: req.body.email,
             passwordHash: bcrypt.hashSync(req.body.password, 10),
             phone: req.body.phone,
-            field: req.body.field,
-            experiences: req.body.experiences
         });
         user = await user.save();
         if(!user){

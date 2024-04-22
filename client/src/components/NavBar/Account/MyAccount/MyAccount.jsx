@@ -1,11 +1,33 @@
 // import emailImg from "../../../../assets/email.png"
+import { useEffect } from "react"
 import myPic from "../../../../assets/JunaidPic.jpg"
 import Footer from "../../../Footer/Footer"
 import NavBar from "../../NavBar"
+import { useState } from "react"
 const MyAccount = () => {
+  const [userName, setUserName] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [userDesc, setUserDesc] = useState('');
+  const [userAddress, setUserAddress] = useState('');
+  const userId = localStorage.getItem('userId');
+  const userJwtToken = localStorage.getItem('userJwtToken');
+  
+  useEffect(()=>{
+    const headers = {
+      'Authorization': `Bearer ${userJwtToken}`,
+      'Content-Type': 'application/json',
+    };
+    fetch(`http://localhost:3000/api/v1/user/${userId}`,{
+      method: 'GET',
+      headers
+    })
+    .then(response => response.json())
+    .then(json => {setUserName(json.name);setUserEmail(json.email);setUserDesc(json.desc);setUserAddress(json.zip);console.log(json)})
+    .catch(error => console.log(error))
+  },[])
   return (
     <div className="w-screen h-fit flex flex-col">
-      <div className="">
+      <div className="sticky top-0">
         <NavBar isSearchBarVisible={false}/>
       </div>
       <div className="w-screen h-screen flex justify-center">
@@ -29,24 +51,24 @@ const MyAccount = () => {
                 <div className="flex flex-col pb-2">
                   <h1 className="text-xl font-bold p-2">Username</h1>
                   <div className="w-full bg-white h-16 rounded-xl border-black border-2 p-2 px-3 font-serif text-lg">
-                    <input className="w-full h-full focus:outline-none" placeholder="Junaid Ahmed"></input>
+                    <input className="w-full h-full focus:outline-none" placeholder={userName}></input>
                   </div>
                 </div>
                 <div className="flex flex-col py-2">
                   <h1 className="text-xl font-bold p-2">Email</h1>
                   <div className="w-full bg-white h-16 rounded-xl border-black border-2 p-2 px-3 font-serif text-lg flex">
                     {/* <img src={emailImg} className="pr-2 py-1"></img> */}
-                    <input className="pl-2 w-full h-full focus:outline-none" placeholder="abc@gmail.com"></input>
+                    <input className="pl-2 w-full h-full focus:outline-none" placeholder={userEmail}></input>
                   </div>
                 </div>
                 <div className="flex flex-col py-2">
                   <h1 className="text-xl font-bold p-2">Description</h1>
-                  <textarea className="border-black border-2 rounded-xl p-2 font-serif" rows={3} placeholder="I am Junaid Ahmed"/>
+                  <textarea className="border-black border-2 rounded-xl p-2 font-serif" rows={3} placeholder={userDesc}/>
                 </div>
                 <div className="flex flex-col py-2">
                   <h1 className="text-xl font-bold p-2">Address</h1>
                   <div className="w-full bg-white h-16 rounded-xl border-black border-2 p-2 px-3 font-serif text-lg flex">
-                    <input className="pl-2 w-full h-full focus:outline-none" placeholder="XYZ, NYC"></input>
+                    <input className="pl-2 w-full h-full focus:outline-none" placeholder={userAddress}></input>
                   </div>
                 </div>
                 <div className="flex-1 flex justify-end items-end">

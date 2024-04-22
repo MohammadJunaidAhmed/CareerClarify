@@ -5,7 +5,7 @@ import JunaidPic from '../../../assets/JunaidPic.jpg'
 const TestCard = ({prof}) => {
   const scW = useContext(mainContext);
   return (
-    <Link as={Link} to="/client" className={` w-80 h-52 bg-slate-200 cursor-pointer rounded-md mt-4 duration-150 hover:bg-slate-100 hover:scale-105 ${scW < 800 ? '':'m-4'}`}>
+    <Link as={Link} to={{pathname: '/client', search: `?name=${prof.profId.name}`}} className={` w-[22rem] min-h-52 bg-slate-200 cursor-pointer rounded-md mt-4 duration-150 hover:bg-slate-100 hover:scale-105 ${scW < 800 ? '':'m-4'}`}>
       <div className={`w-full h-full flex flex-col p-[2px]`}>
         <div className='flex-1 flex'>
           <div className='flex-1 flex flex-col'>
