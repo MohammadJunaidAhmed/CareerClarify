@@ -97,6 +97,7 @@ router.put('/addexp/:id', async(req, res)=>{
         stillWorking: req.body.stillWorking,
         startDate: req.body.startDate,
         endDate: req.body.stillWorking ? 'to-date':req.body.endDate,
+        price: req.body.price,
         profId:req.params.id,
         proof: req.body.proof,
     });

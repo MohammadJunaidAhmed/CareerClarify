@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 const professionalRoutes = require('./src/routes/professionals');
+const userRoutes = require('./src/routes/users');
 const experienceRoutes = require('./src/routes/experience');
 const audioRequestRoutes = require('./src/routes/audioRequest');
 const authJwt = require('./src/helpers/jwt');
@@ -28,6 +29,7 @@ app.use(errorHandler);
 
 
 app.use(`${api}/prof`, professionalRoutes);
+app.use(`${api}/user`, userRoutes);
 app.use(`${api}/exp`, experienceRoutes);
 app.use(`${api}/requests/audio`, audioRequestRoutes);
 

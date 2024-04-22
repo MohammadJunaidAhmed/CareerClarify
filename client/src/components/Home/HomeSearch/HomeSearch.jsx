@@ -2,54 +2,65 @@ import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom";
 // import PropTypes from "prop-types";
 import mainContext from "../../Contexts/MainContext/MainContext";
+import { useEffect } from "react";
 
 
 
 const HomeSearch = () => {
-  const searchQueries = [
-    "Google",
-    "Microsoft",
-    "Amazon",
-    "Accenture",
-    "Netflix",
-    "Apple",
-    "Tesla",
-    "JP Morgan",
-    "Nvdia",
-    "IBM",
-    "Salesforce",
-    "PayPal",
-    "Adobe",
-    "Micron",
-    "Intuit",
-    "NetApp",
-    "Oracle",
-    "Synopsys",
-    "GoldmanSacs",
-    "Barclays",
-    "WellsFargo",
-    "SAP",
-    "VM Ware",
-    "Adyen",
-    "TCS",
-    "Infosys",
-    "Tech Mahindra",
-    "PepsiCo",
-    "Cisco",
-    "UKG",
-    "Congnizant",
-    "Capgemini",
-    "HPE",
-    "HCL",
-    "Wipro",
-    "Intel",
-    "Larsen & Turbo Infotech",
-    "LTI",
-    "Qualcomm",
-    "Atlassian",
-    "DE Shaw",
-    "Juspay",
-  ]
+  const [searchQueries, setSearchQueries] = useState([]);
+  useEffect(()=>{
+    const fetchCompanies = async() => {
+      await fetch('http://localhost:3000/api/v1/exp/unqcompanies', {method: 'GET'})
+      .then(response=>response.json())
+      .then(json => {setSearchQueries(json); console.log(json)})
+      .catch(error => console.error(error));
+    }
+    fetchCompanies();
+  }, [])
+  // const searchQueries = [
+  //   "Google",
+  //   "Microsoft",
+  //   "Amazon",
+  //   "Accenture",
+  //   "Netflix",
+  //   "Apple",
+  //   "Tesla",
+  //   "JP Morgan",
+  //   "Nvdia",
+  //   "IBM",
+  //   "Salesforce",
+  //   "PayPal",
+  //   "Adobe",
+  //   "Micron",
+  //   "Intuit",
+  //   "NetApp",
+  //   "Oracle",
+  //   "Synopsys",
+  //   "GoldmanSacs",
+  //   "Barclays",
+  //   "WellsFargo",
+  //   "SAP",
+  //   "VM Ware",
+  //   "Adyen",
+  //   "TCS",
+  //   "Infosys",
+  //   "Tech Mahindra",
+  //   "PepsiCo",
+  //   "Cisco",
+  //   "UKG",
+  //   "Congnizant",
+  //   "Capgemini",
+  //   "HPE",
+  //   "HCL",
+  //   "Wipro",
+  //   "Intel",
+  //   "Larsen & Turbo Infotech",
+  //   "LTI",
+  //   "Qualcomm",
+  //   "Atlassian",
+  //   "DE Shaw",
+  //   "Juspay",
+  // ]
   const [query, setQuery] = useState('');
   const {scW} = useContext(mainContext);
   const {visible, setVisible} = useContext(mainContext);

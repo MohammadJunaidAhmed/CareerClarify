@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const experienceSchema = new mongoose.Schema({
+const experienceSchema = new mongoose.Schema({ //TODO: Shift from experience to service
     company: {
         type: String,
         required: true,
@@ -20,6 +20,10 @@ const experienceSchema = new mongoose.Schema({
     endDate:{
         type: String,
         required: true,
+    },
+    price:{
+        type: Number,
+        default: 0,
     },
     proof:{
         type: String,

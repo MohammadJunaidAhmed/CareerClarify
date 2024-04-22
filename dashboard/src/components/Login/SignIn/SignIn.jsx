@@ -23,9 +23,9 @@ const SignIn = () => {
             const data = await response.json();
             console.log(data)
             const token = data.token;
-            const profId = data.profId;
+            const userId = data.profId;
             localStorage.setItem('jwtToken', token);
-            localStorage.setItem('userId', profId);
+            localStorage.setItem('userId', userId);
             setIsLoggedIn(true);
             navigate('/')
         }

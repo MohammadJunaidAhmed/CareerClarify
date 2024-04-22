@@ -4,12 +4,23 @@ const { Experience } = require('../models/Experience/Experience');
 const { Professional } = require('../models/Professional/professional');
 
 router.get('/', async(req, res)=>{
-    res.send("Hello");
+    try{
+        const exps = await Experience.find();
+        res.status(200).send(exps);
+    }
+    catch(e){
+        res.status(500).send(e);
+    }
 })
 router.get('/unqcompanies', async(req, res)=>{
     const unqCompanies = await Experience.distinct('company');
     res.status(200).json(unqCompanies);
-})
+});
+
+router.get('/:company', async(req,res)=>{
+    const profs = await Experience.find({company:req.params.company}).populate('profId');
+    res.status(200).json(profs);
+});
 
 router.get('/:id', async(req, res)=>{
     const exp = await Experience.findById(req.params.id);

@@ -38,6 +38,7 @@ const Services = () => {
     const designation = event.target.elements.designation.value;
     const startDate = event.target.elements.startDate.value;
     const endDate = isEndDateVisible ? event.target.elements.endDate.value : "to-date";
+    const price = event.target.elements.price.value;
 
     const token = localStorage.getItem('jwtToken');
     const userId = localStorage.getItem('userId');
@@ -55,7 +56,7 @@ const Services = () => {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ company:companyName, designation:designation, stillWorking:!isEndDateVisible, startDate:startDate, endDate: endDate }),
+          body: JSON.stringify({ company:companyName, designation:designation, stillWorking:!isEndDateVisible, startDate:startDate, endDate: endDate, price: price }),
         })
       }
     setIsAddingNewNote(false);
@@ -73,7 +74,7 @@ const Services = () => {
             :
             <form onSubmit={handleAddService}>
               {/* <AddServiceNote/> */}
-              <div className='w-96 h-64 bg-yellow-400 flex flex-col gap-3 py-4 p-20'>
+              <div className='w-96 h-fit bg-yellow-400 flex flex-col gap-3 py-4 p-20'>
                 <input type="text" name="companyName" placeholder="Company Name" className="p-[2px] rounded-md"/>
                 <input type="text" name="designation" placeholder="Designation" className="p-[2px] rounded-md"/>
                 <div>
@@ -91,6 +92,7 @@ const Services = () => {
                         </div>
                     }
                 </div>
+                <input type="number" name="price" placeholder="Enter price in INR" className="p-[2px] rounded-md"/>
               </div>
               <div className="flex justify-center px-4 py-2 gap-3">
                 <button className="bg-green-400 p-2 rounded-md w-24" type="submit">Save</button>

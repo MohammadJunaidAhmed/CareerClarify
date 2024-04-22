@@ -13,7 +13,8 @@ import { LoginContextProvider } from './components/Contexts/LoginContext';
 import Services from './components/Services/Services';
 
 function App() {
-
+  const token = localStorage.getItem('jwtToken');
+  const profId = localStorage.getItem('userId');
   return (
     <Router>
       <LoginContextProvider >
@@ -23,15 +24,15 @@ function App() {
             <Route path='/login' element={<Navigate to='/signin'/>}></Route>
             <Route path='/signup' element={<SignUp/>}></Route>
             <Route path='/register' element={<Navigate to='/signup'/>}></Route>
-            <Route element={<Layout/>}>
-              <Route path='/' element={<Home />}></Route>
-              <Route path='/home' element={<Navigate to={'/'}/>}></Route>
-              <Route path='/orders' element={<Orders/>}></Route>
-              <Route path='/myservices' element={<Services/>}></Route>
-              <Route path='/page1' element={<Page1/>}></Route>
-              <Route path='/page2' element={<Page2/>}></Route>
-            </Route>
-            <Route path='*' element={<PageNotFound/>}/>
+              <Route element={<Layout/>}>
+                <Route path='/' element={<Home />}></Route>
+                <Route path='/home' element={<Navigate to={'/'}/>}></Route>
+                <Route path='/orders' element={<Orders/>}></Route>
+                <Route path='/myservices' element={<Services/>}></Route>
+                <Route path='/page1' element={<Page1/>}></Route>
+                <Route path='/page2' element={<Page2/>}></Route>
+              </Route>
+            <Route path='*' element={<Navigate to='/signin'/>}/>
           </Routes>
         </MainContextProvider>
       </LoginContextProvider>
