@@ -6,6 +6,10 @@ const { Professional } = require('../models/Professional/professional');
 router.get('/', async(req, res)=>{
     res.send("Hello");
 })
+router.get('/unqcompanies', async(req, res)=>{
+    const unqCompanies = await Experience.distinct('company');
+    res.status(200).json(unqCompanies);
+})
 
 router.get('/:id', async(req, res)=>{
     const exp = await Experience.findById(req.params.id);
@@ -27,6 +31,7 @@ router.post('/addexp', async(req, res)=>{
         proof: req.body.proof,
         profId: req.body.profId,
     });
+    console.log(exp);
 
     exp = await exp.save();
 
@@ -88,5 +93,7 @@ router.delete('/:id', async (req,res)=>{
         return res.status(500).send(err);
     }
 });
+
+
 
 module.exports =router;

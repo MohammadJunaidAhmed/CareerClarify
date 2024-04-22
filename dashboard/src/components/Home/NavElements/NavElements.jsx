@@ -15,6 +15,8 @@ const NavElements = () => {
 
     const handleLogout = () => {
         setIsLoggedIn(false)
+        localStorage.removeItem('jwtToken')
+        localStorage.removeItem('userId')
         navigate('/signin')
     }
     

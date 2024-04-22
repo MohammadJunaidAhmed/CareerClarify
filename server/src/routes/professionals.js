@@ -33,7 +33,7 @@ router.post('/login', async(req,res)=>{
                 secret,
                 {expiresIn : '1d'}
             )
-            res.status(200).send(token);
+            res.status(200).send({prof: prof.email, token: token, profId:prof._id});
         }
         else{
             res.status(400).send('Wrong Password');
@@ -111,5 +111,16 @@ router.put('/addexp/:id', async(req, res)=>{
     }
     return res.status(200).send(profUpdated);
 });
+router.get('/getexp/:id',async(req,res)=>{
+    try{
+        const profId = req.params.id;
+        const experiences = await Experience.find({profId:profId});
+        res.status(200).send(experiences);
+    }
+    catch(e){
+        res.status(500).send(e);
+    }
+
+})
 
 module.exports =router;

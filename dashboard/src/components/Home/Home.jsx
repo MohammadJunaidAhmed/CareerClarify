@@ -20,14 +20,6 @@ const Home = () => {
   return (
     <div className="w-full h-full flex">
       <div className="flex-1 bg-[#E0E0E0] flex flex-col">
-        <div className=" h-[90px] w-full bg-[#F5F5F5] shadow-sm flex justify-between px-7 py-2">
-          <div className=" flex items-center text-xl font-serif">
-            {/* TODO: MAKE THIS FONT APPEALING!  */}
-            <h1>{pageHeader}</h1>
-          </div>
-          <SearchBar/>
-          <NavElements/>
-        </div>
         <div className="flex-1 px-7 pt-3 pb-2 flex flex-col">
           <div className=" w-full h-20 flex justify-between">
             <h1 className="text-3xl flex items-center justify-center">Overview</h1>

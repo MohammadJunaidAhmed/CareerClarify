@@ -13,7 +13,10 @@ function authJwt() {
         path: [
             // {url: /\/public\/uploads(.*)/ , methods: ['GET', 'OPTIONS'] },
             {url: `${api}/prof/login/`},
-            // `/api/v1/prof/login`,
+            {url: `${api}/exp/allcompanies/`},
+            {url: `/api/v1/prof/getexp/662536f877ecdfa33a8105b2`}, //TODO: REMOVE THIS. ONLY FOR TESTING PURPOSE
+            {url: `/^\/api\/v1\/exp\/(.*)$/`, methods: ['DELETE']}, //TODO: REMOVE THIS. ONLY FOR TESTING PURPOSE
+            `${api}/exp/unqcompanies`,
             `${api}/prof/register`,
         ]
     })
